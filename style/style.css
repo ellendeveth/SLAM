@@ -1,0 +1,77 @@
+@font-face {
+    font-family: "Gilroy";
+    src: url('../fonts/Gilroy-Regular.otf');
+}
+
+* {
+    font-family: "Gilroy";
+    font-size: 14px;
+}
+
+.body--login {
+    background-color: #FAF6EE; 
+    height: 100%;
+}
+
+.form {
+    background-color: #FAF6EE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form__title {
+    margin-bottom: 32px;
+    font-family: "Gilroy";
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.form__container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.form__input {
+    border: #D0D5DD solid 0.1px;
+    border-radius: 6px;
+    padding: 0 0.6em;
+    max-width: 320px;
+    height: 40px;
+}
+
+.form__input:focus {
+    outline: none;
+    border: #EB5B29 solid 0.1px;
+}
+
+.form__text {
+    margin-bottom: 6px;
+    color: #344054;
+}
+
+.form__link {
+    color: #EB5B29;
+    text-decoration: none;
+    margin-top: 12px;
+}
+
+.form__span {
+    margin-top: 12px;
+}
+
+.btn {
+    background-color: #430BC8;
+    border: none;
+    border-radius: 6px;
+    color: #FAFAFA;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 320px;
+    height: 40px;
+}
