@@ -30,7 +30,7 @@
 
             <div class="form__span">
                 <span>Nog geen account?</span>
-                <a class="form__link" href="register.php">Registreer</a>
+                <a class="form__link" href="register/register-user.php">Registreer</a>
             </div>
         
         </form>
