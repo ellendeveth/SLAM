@@ -26,7 +26,7 @@
             </div>
             
             <div class="btn__block">
-                <a class="btn btn-register" href="">
+                <a class="btn btn-register" href="./register-student.php">
                     <span class="btn__text">Account aanmaken</span>
                 </a>
             </div>
@@ -47,7 +47,7 @@
                 </div>
                 
                 <div class="btn__block">
-                    <a class="btn btn-register" href="">
+                    <a class="btn btn-register" href="./register-organization.php">
                         <span class="btn__text">Account aanmaken</span>
                     </a>
                 </div>
