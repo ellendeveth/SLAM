@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://use.typekit.net/hbs6zbg.css">
     <link rel="stylesheet" href="style/style.css">
 </head>
-<body class="body--login">
+<body class="body--startpage">
     <div class="form">
         <form action="" method="post">
             <h1 class="form__title">Welkom terug!</h1>
