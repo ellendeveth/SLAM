@@ -1,17 +1,60 @@
 @font-face {
     font-family: "Gilroy";
-    src: url('../fonts/Gilroy-Regular.otf');
+    src: url('../fonts/Gilroy-Regular.ttf');
+    font-weight: normal;
 }
+@font-face {
+    font-family: "Gilroy";
+    src: url('../fonts/Gilroy-Bold.ttf');
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Gilroy";
+    src: url('../fonts/Gilroy-Light.ttf');
+    font-weight: lighter;
+}
+@font-face {
+    font-family: "Gilroy";
+    src: url('../fonts/Gilroy-Medium.ttf');
+    font-weight: medium;
+}
+
+/* 
+    overall styles
+*/
 
 * {
     font-family: "Gilroy";
     font-size: 14px;
 }
+.header-one {
+    font-size: 3em;
+    font-weight: bold;
+    font-family: gopher, sans-serif;
+    text-align: center;
+}
 
-.body--login {
+.header-two {
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: "Gilroy", sans-serif;
+}
+
+.subtitle-big {
+    font-size: 1.2em;
+    font-weight: lighter;
+    font-family: "Gilroy", sans-serif;
+    margin-top: -1em;
+}
+
+.body--startpage {
     background-color: #FAF6EE; 
     height: 100%;
 }
+
+/* 
+    form/login styles
+*/
 
 .form {
     background-color: #FAF6EE;
@@ -74,4 +117,57 @@
     cursor: pointer;
     width: 320px;
     height: 40px;
+}
+
+/*
+    signup styles
+*/
+
+.container__block {
+    background-color: white;
+    padding: 32px;
+    margin: 32px 24px;
+    border: none;
+    border-radius: 12px;
+    filter: drop-shadow(6px 6px 4px #4b4b4b15);
+}
+
+.list {
+    padding: 0 1em;
+    margin-bottom: 32px;
+}
+
+.list__item {
+    padding: 0.5em 0;
+}
+
+.btn-register {
+    display: flex;
+    width: 80vw;
+    height: 34px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.btn__block {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*
+    media queries
+*/
+
+@media (min-width: 1020px){
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .container__block {
+        height: 280px;
+        width: 420px;
+    }
 }
