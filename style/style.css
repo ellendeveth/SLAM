@@ -3,16 +3,19 @@
     src: url('../fonts/Gilroy-Regular.ttf');
     font-weight: normal;
 }
+
 @font-face {
     font-family: "Gilroy";
     src: url('../fonts/Gilroy-Bold.ttf');
     font-weight: bold;
 }
+
 @font-face {
     font-family: "Gilroy";
     src: url('../fonts/Gilroy-Light.ttf');
     font-weight: lighter;
 }
+
 @font-face {
     font-family: "Gilroy";
     src: url('../fonts/Gilroy-Medium.ttf');
@@ -27,6 +30,7 @@
     font-family: "Gilroy";
     font-size: 14px;
 }
+
 .header-one {
     font-size: 3em;
     font-weight: bold;
@@ -48,8 +52,9 @@
 }
 
 .body--startpage {
-    background-color: #FAF6EE; 
+    background-color: #FAF6EE;
     height: 100%;
+    overflow: hidden;
 }
 
 /* 
@@ -149,6 +154,7 @@
     align-items: center;
     justify-content: center;
 }
+
 .btn__block {
     display: flex;
     justify-content: center;
@@ -159,7 +165,7 @@
     media queries
 */
 
-@media (min-width: 1020px){
+@media (min-width: 1020px) {
     .container {
         display: flex;
         flex-direction: row;
