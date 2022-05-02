@@ -160,6 +160,36 @@
     justify-content: center;
 }
 
+/*
+    competentions styles
+*/
+
+.container__comp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.block__link {
+    text-decoration: none;
+    color: black;
+   
+}
+
+.block__text {
+    padding: 1em;
+   
+    border-radius: 6px;
+    width: 100px;
+    background-color: white;
+}
+
+.block__img {
+    width: 10px;
+    height: 14px;
+}
 
 /*
     media queries

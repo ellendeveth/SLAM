@@ -13,7 +13,7 @@
 
     <div class="container">
         <div class= "container__block">
-            <div class="block__text">
+            <div class="">
                 <h2 class="header-two">Student</h2>
                 <p class="subtitle-big">Voor studenten die hun steentje willen bijdragen.</p>
                 <span class="text__list">
@@ -34,7 +34,7 @@
         </div>
 
         <div class="container__block">
-            <div class="block__text">
+            <div class="">
                     <h2 class="header-two">Organisatie</h2>
                     <h3 class="subtitle-big">Voor organisaties waar alle hulp welkom is.</h3>
                     <span class="text__list">
