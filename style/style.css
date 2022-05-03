@@ -165,30 +165,30 @@
 */
 
 .container__comp {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    width: 320px;
+    margin: 0 auto;
+    position: relative;
+    -webkit-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    transform: translateY(50%);
+}
+
+.block {
+    margin-top: 24px;
+    background-color: white;
+    padding: 1em;
+    border-radius: 6px;
 }
 
 .block__link {
     text-decoration: none;
     color: black;
-   
-}
-
-.block__text {
-    padding: 1em;
-   
-    border-radius: 6px;
-    width: 100px;
-    background-color: white;
 }
 
 .block__img {
     width: 10px;
     height: 14px;
+    float: right;
 }
 
 /*
