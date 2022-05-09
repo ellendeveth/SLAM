@@ -1,4 +1,22 @@
-<!DOCTYPE html>
+<?php
+     include_once('../bootstrap.php');
+
+     if (!empty($_POST['register'])) {
+         try {
+             $user = new User();
+             $user->setName($_POST['name']);
+             $user->setEmail($_POST['email']);
+             $user->setPassword($_POST['password']);
+             $user->setConfirm($_POST['confirm']);
+             $user->setSchool($_POST['school']);
+             $user->setEducation($_POST['education']);
+             $user->register();
+             header('Location: competentions.php');
+         } catch (\Throwable $e) {
+             $error = $e->getMessage();
+         }
+     }
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,6 +31,12 @@
         <form action="" method="post">
             <h1 class="form__title">Welkom bij SLAM</h1>
 
+            <?php if (isset($error)): ?>
+                <div class="form__container">
+                    <p class="form__error"><?php echo $error; ?></p>
+                </div>
+            <?php endif; ?>
+            
             <div class="form__container">
                 <label class="form__text" for="name">Naam</label>
                 <input class="form__input" type="text" name="name">
