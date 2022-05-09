@@ -152,7 +152,23 @@
             return $statement->execute();
         }
 
-        public function login()
+        public function canLogin()
         {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("select * from users where email = :email");
+            $statement->bindValue(":email", $this->email);
+            $statement->execute();
+            $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+            if ($user) {
+                $hash = $user['password'];
+                if (password_verify($this->password, $hash)) {
+                    return true;
+                } else {
+                    throw new Exception("Incorrect password. Try again.");
+                }
+            } else {
+                throw new Exception("User does not exist.");
+            }
         }
     }

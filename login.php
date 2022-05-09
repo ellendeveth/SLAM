@@ -1,4 +1,19 @@
-<!DOCTYPE html>
+<?php
+    // Load all classes automatically
+    include_once('bootstrap.php');
+
+    if (!empty($_POST['login'])) {
+        try {
+            $user = new User();
+            $user->setEmail($_POST['email']);
+            $user->setPassword($_POST['password']);
+            $user->canLogin();
+            header('Location: index.php');
+        } catch (\Throwable $e) {
+            $error = $e->getMessage();
+        }
+    }
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,6 +28,12 @@
         <form action="" method="post">
             <h1 class="form__title">Welkom terug!</h1>
 
+            <?php if (isset($error)): ?>
+                <div class="form__container">
+                    <p class="form__error"><?php echo $error; ?></p>
+                </div>
+            <?php endif; ?>
+            
             <div class="form__container">
                 <label class="form__text" for="email">Email</label>
                 <input class="form__input" type="text" name="email">
@@ -25,7 +46,7 @@
             </div>
             
             <div >
-                <input class="btn" type="submit" name="submit" value="Aanmelden">
+                <input class="btn" type="submit" name="login" value="Aanmelden">
             </div>
 
             <div class="form__span">
