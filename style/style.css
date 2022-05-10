@@ -21,10 +21,23 @@
     src: url('../fonts/Gilroy-Medium.ttf');
     font-weight: medium;
 }
+/*
+    navbar
+*/
+.searchbar__input {
+    padding: 0.2em 1em;
+    width: 300px;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
 
 /* 
     overall styles
 */
+
+
 
 * {
     font-family: "Gilroy";
@@ -125,6 +138,19 @@
 }
 
 /*
+    forgot password
+*/
+.alert-message {
+    background-color: #B7D9E8;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    max-width: 250px;
+    padding: 12px 34px;
+    font-weight: bold;
+}
+
+/*
     signup styles
 */
 
@@ -191,6 +217,179 @@
     float: right;
 }
 
+/*
+    homepage
+*/
+.container--feed {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+}
+
+.filters {
+    max-width: 250px;
+    max-height: 300px;
+    background-color: #FAFAFA;
+    padding: 3em 1em;
+    border: none;
+    border-radius: 12px;
+    filter: drop-shadow(8px 8px 6px #34343415);
+}
+
+.projects__img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+}
+
+.projects__box {
+    display: flex;
+    flex-direction: column;
+}
+
+.project__box__li {
+    list-style: none;
+}
+
+.project__box {
+    margin-bottom: 58px;
+}
+
+.project__box__profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 24px;
+}
+
+.project__box__item {
+    background-color: #FAFAFA;
+    padding: 1.5em ;
+    width: 1000px;
+    border: none;
+    border-radius: 12px;
+    filter: drop-shadow(8px 8px 6px #34343415);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project__tags {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+}
+
+.tags__tag {
+    padding: 0.3em 2em ;
+    background-color: #B7D9E8;
+    border-radius: 6px;
+    margin: 0 0.3em;
+}
+
+.project__info {
+    display: flex;
+    align-items: center;
+}
+
+.project__info__link {
+    text-decoration: none;
+    color: black;
+    padding-right: 6px;
+}
+
+.project__info__img {
+    width: 16px;
+    height: 16px;
+
+}
+
+/*
+    chat page
+*/
+.container--messages {
+    display: grid;
+    grid-template-columns: 25vw 1fr;
+}
+
+.chat__groups {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 24px 0;
+}
+
+.messages__groups {
+    background-color: #FAF6EE;
+    height: 100vh;
+}
+
+.messages__chat__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 24px;
+    margin-left: 12px;
+}
+
+.chat__info__img {
+    width: 16px;
+    height: 16px;
+    transform: scaleX(-1);
+}
+
+.messages__chat__search {
+    width: 20vw;
+    padding: 0.5em;
+    border: 1px solid #3b3c3d;
+    border-radius: 6px;
+    background-color: #FAF6EE;
+    color: #667085;
+    justify-content: center;
+    margin-left: 24px;
+    margin-bottom: 24px;
+}
+
+.messages__chat__groups{
+    margin-left: 24px;
+}
+
+.messages__chat__groups h2{
+    font-size: 18px;
+}
+
+.chat__groups__text {
+    margin-left: 12px;
+}
+
+.chat__groups__text h3 {
+    margin: 0;
+    padding: 0.1em;
+    font-size: 18px;
+    
+}
+.chat__groups__text p {
+    margin: 0;
+    padding: 0.1em;
+    color: #686868;
+    font-weight: regular;
+
+}
+
+.messages__chat__emptystate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 30vh;
+}
+
+.chat__emptystate__img {
+    width: 120px;
+    height: 140px;
+    display: flex;
+}
 /*
     media queries
 */
