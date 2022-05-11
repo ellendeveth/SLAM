@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,23 +9,25 @@
     <link rel="stylesheet" href="https://use.typekit.net/hbs6zbg.css">
     <link rel="stylesheet" href="style/style.css">
 </head>
+
 <body>
     <?php require_once('header.php'); ?>
 
     <div class="container--feed">
         <div class="filters">
+            <h2 class="header-two">Filter</h2>
             <div class="filters__language">
-                <h2>Taal van project</h2>
+                <h3>Taal van project</h3>
                 <div class="filter__languages">
-                    <div>
+                    <div class="filter__container">
                         <input class="filter__checkbox--active" type="checkbox" name="language" value="nl">
                         <label for="language">Nederlands</label>
                     </div>
-                    <div>
+                    <div class="filter__container">
                         <input class="filter__checkbox--active" type="checkbox" name="language" value="fr">
                         <label for="language">Frans</label>
                     </div>
-                    <div>
+                    <div class="filter__container">
                         <input class="filter__checkbox--active" type="checkbox" name="language" value="en">
                         <label for="language">Engels</label>
                     </div>
@@ -32,35 +35,35 @@
             </div>
 
             <div class="filters__skills">
-                <h2>Vaardigheden</h2>
-                <div>
-                        <input class="filter__checkbox--active" type="checkbox" name="skills" value="com">
-                        <label class="filter__checkbox--active" for="skills">Communicatie</label>
-                    </div>
-                    <div>
-                        <input class="filter__checkbox--active" type="checkbox" name="skills" value="inf">
-                        <label for="skills">Informatica</label>
-                    </div>
-                    <div>
-                        <input class="filter__checkbox--active" type="checkbox" name="skills" value="des">
-                        <label for="skills">Webdesign</label>
-                    </div>
-                    <div>
-                        <input class="filter__checkbox--active" type="checkbox" name="skills" value="ond">
-                        <label for="skills">Onderwijs</label>
-                    </div>
-                    <div>
-                        <input class="filter__checkbox--active" type="checkbox" name="skills" value="org">
-                        <label for="skills">Organisatie</label>
-                    </div>
+                <h3>Vaardigheden</h3>
+                <div class="filter__container">
+                    <input class="filter__checkbox--active" type="checkbox" name="skills" value="com">
+                    <label class="filter__checkbox--active" for="skills">Communicatie</label>
+                </div>
+                <div class="filter__container">
+                    <input class="filter__checkbox--active" type="checkbox" name="skills" value="inf">
+                    <label for="skills">Informatica</label>
+                </div>
+                <div class="filter__container">
+                    <input class="filter__checkbox--active" type="checkbox" name="skills" value="des">
+                    <label for="skills">Webdesign</label>
+                </div>
+                <div class="filter__container">
+                    <input class="filter__checkbox--active" type="checkbox" name="skills" value="ond">
+                    <label for="skills">Onderwijs</label>
+                </div>
+                <div class="filter__container">
+                    <input class="filter__checkbox--active" type="checkbox" name="skills" value="org">
+                    <label for="skills">Organisatie</label>
+                </div>
             </div>
             <div>
-                <input class="link" type="submit" name="submit" value="+ Meer opties">
+                <button class="btn--extra">+ Meer opties</button>
             </div>
         </div>
 
         <div class="projects">
-            <h1 class="header-two">Projecten</h1>
+            <h1>Projecten</h1>
             <div class="projects__box">
                 <ul class="project__box__li">
                     <!-- foreach ($projects as $project):  -->
@@ -81,7 +84,7 @@
                                     </ul>
                                     <p>beschrijving</p>
                                 </div>
-                                
+
                                 <div class="project__info">
                                     <a class="project__info__link" href="">Meer info</a>
                                     <img class="project__info__img" src="assets/img/arrow.png" alt="arrow">
@@ -97,4 +100,5 @@
     </div>
 
 </body>
+
 </html>
