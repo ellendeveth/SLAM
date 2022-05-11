@@ -68,7 +68,7 @@
 }
 
 .nav__links {
-    transition: all .2s ease-in;
+    transition: all .1s ease-in;
 }
 
 .nav__links:hover {
@@ -102,10 +102,18 @@ body {
     text-align: center;
 }
 
-.header-two {
-    font-size: 1.5em;
+.header-two,
+h2 {
+    font-size: 1.6em;
     font-weight: bold;
     font-family: "Gilroy", sans-serif;
+}
+
+h3 {
+    font-size: 1.4em;
+    font-weight: 500;
+    font-family: "Gilroy", sans-serif;
+    margin: 0 0 .6em;
 }
 
 .subtitle-big {
@@ -113,6 +121,11 @@ body {
     font-weight: 300;
     font-family: "Gilroy", sans-serif;
     margin-top: -1em;
+}
+
+p {
+    font-size: 1.1em;
+    font-weight: 500;
 }
 
 .body--startpage {
@@ -298,28 +311,69 @@ body {
 
 
 /*
-    homepage
+    dashboard
 */
 
 .container--feed {
-    display: grid;
-    grid-template-columns: 300px 1fr;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 3em auto 0;
 }
 
 .filters {
-    max-width: 250px;
-    max-height: 300px;
+    width: 20%;
+    max-height: 480px;
     background-color: #FAFAFA;
-    padding: 3em 1em;
+    padding: calc(32px - 0.83em) 32px;
     border: none;
     border-radius: 12px;
     filter: drop-shadow(8px 8px 6px #34343415);
+}
+
+.filter__container {
+    margin-top: 8px;
+}
+
+.filters label {
+    font-size: 1em;
+}
+
+.filters__language {
+    margin: 32px 0;
+}
+
+.filters__skills {
+    margin: 32px 0;
+}
+
+.btn--extra {
+    border: none;
+    background-color: transparent;
+    color: #EB5B29;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: all 0.1s ease-in;
+}
+
+.btn--extra:hover {
+    color: black;
+}
+
+.projects {
+    width: 75%;
+}
+
+.projects h1 {
+    font-size: 32px;
 }
 
 .projects__img {
     width: 46px;
     height: 46px;
     border-radius: 50%;
+    margin-right: 16px;
 }
 
 .projects__box {
@@ -329,6 +383,7 @@ body {
 
 .project__box__li {
     list-style: none;
+    padding: 0;
 }
 
 .project__box {
