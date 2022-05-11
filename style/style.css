@@ -21,6 +21,7 @@
     src: url('../fonts/Gilroy-Medium.ttf');
     font-weight: medium;
 }
+
 /*
     navbar
 */
@@ -28,6 +29,7 @@
     padding: 0.2em 1em;
     width: 300px;
 }
+
 .nav {
     display: flex;
     justify-content: space-between;
@@ -59,7 +61,7 @@
 
 .subtitle-big {
     font-size: 1.2em;
-    font-weight: lighter;
+    font-weight: 300;
     font-family: "Gilroy", sans-serif;
     margin-top: -1em;
 }
@@ -194,9 +196,7 @@
     width: 320px;
     margin: 0 auto;
     position: relative;
-    -webkit-transform: translateY(50%);
-    -ms-transform: translateY(50%);
-    transform: translateY(50%);
+    transform: translateY(40%);
 }
 
 .block {
@@ -204,6 +204,7 @@
     background-color: white;
     padding: 1em;
     border-radius: 6px;
+    cursor: pointer;
 }
 
 .block__link {
@@ -218,8 +219,39 @@
 }
 
 /*
+    competention filters
+*/
+
+.container__comp__filters {
+    width: 450px;
+    transform: translateY(50%);
+}
+
+.filter {
+    margin: 24px 24px 0 0;
+    background-color: #B7D9E8;
+    padding: .6em 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.filter button {
+    border: none;
+    color: black;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.filter:active {
+    background-color: #EB5B29 !important;
+}
+
+
+/*
     homepage
 */
+
 .container--feed {
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -263,7 +295,7 @@
 
 .project__box__item {
     background-color: #FAFAFA;
-    padding: 1.5em ;
+    padding: 1.5em;
     width: 1000px;
     border: none;
     border-radius: 12px;
@@ -282,7 +314,7 @@
 }
 
 .tags__tag {
-    padding: 0.3em 2em ;
+    padding: 0.3em 2em;
     background-color: #B7D9E8;
     border-radius: 6px;
     margin: 0 0.3em;
@@ -351,11 +383,11 @@
     margin-bottom: 24px;
 }
 
-.messages__chat__groups{
+.messages__chat__groups {
     margin-left: 24px;
 }
 
-.messages__chat__groups h2{
+.messages__chat__groups h2 {
     font-size: 18px;
 }
 
@@ -367,8 +399,9 @@
     margin: 0;
     padding: 0.1em;
     font-size: 18px;
-    
+
 }
+
 .chat__groups__text p {
     margin: 0;
     padding: 0.1em;
@@ -390,6 +423,7 @@
     height: 140px;
     display: flex;
 }
+
 /*
     media queries
 */
