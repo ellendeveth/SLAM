@@ -23,6 +23,21 @@
 }
 
 /*
+variables
+*/
+
+:root {
+    --primary: #430BC8;
+    --secondary: #B7D9E8;
+    --accent: #EB5B29;
+    --neutral: #F1E7D2;
+    --offblack: #0E0E14;
+    --offwhite: #FAF6EE;
+    --white: #ffffff;
+    --gray: #8d8d8d;
+}
+
+/*
     navbar
 */
 
@@ -47,7 +62,7 @@
     width: 42em;
     height: 32px;
     border-radius: 8px;
-    border: 1px solid #8d8d8d;
+    border: 1px solid var(--gray);
 }
 
 .searchbar__submit {
@@ -63,7 +78,7 @@
 
 .nav__links a {
     text-decoration: none;
-    color: #0E0E14;
+    color: var(--offblack);
     font-weight: 500;
 }
 
@@ -72,8 +87,8 @@
 }
 
 .nav__links:hover {
-    background-color: #B7D9E8;
-    box-shadow: 0 0 0 10px #B7D9E8;
+    background-color: var(--secondary);
+    box-shadow: 0 0 0 10px var(--secondary);
     border-radius: 4px;
 }
 
@@ -129,7 +144,7 @@ p {
 }
 
 .body--startpage {
-    background-color: #FAF6EE;
+    background-color: var(--offwhite);
     height: 100%;
     overflow: hidden;
 }
@@ -139,7 +154,7 @@ p {
 */
 
 .form {
-    background-color: #FAF6EE;
+    background-color: var(--offwhite);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -169,16 +184,16 @@ p {
 
 .form__input:focus {
     outline: none;
-    border: #EB5B29 solid 0.1px;
+    border: var(--accent) solid 0.1px;
 }
 
 .form__text {
     margin-bottom: 6px;
-    color: #344054;
+    color: var(--offblack);
 }
 
 .form__link {
-    color: #EB5B29;
+    color: var(--accent);
     text-decoration: none;
     margin-top: 12px;
 }
@@ -188,10 +203,10 @@ p {
 }
 
 .btn {
-    background-color: #430BC8;
+    background-color: var(--primary);
     border: none;
     border-radius: 6px;
-    color: #FAFAFA;
+    color: var(--white);
     text-decoration: none;
     text-align: center;
     font-size: 16px;
@@ -205,10 +220,10 @@ p {
     forgot password
 */
 .alert-message {
-    background-color: #B7D9E8;
+    background-color: var(--secondary);
     border: none;
     border-radius: 6px;
-    color: white;
+    color: var(--white);
     max-width: 250px;
     padding: 12px 34px;
     font-weight: bold;
@@ -219,7 +234,7 @@ p {
 */
 
 .container__block {
-    background-color: white;
+    background-color: var(--white);
     padding: 32px;
     margin: 32px 24px;
     border: none;
@@ -263,7 +278,7 @@ p {
 
 .block {
     margin-top: 24px;
-    background-color: white;
+    background-color: var(--white);
     padding: 1em;
     border-radius: 6px;
     cursor: pointer;
@@ -271,7 +286,7 @@ p {
 
 .block__link {
     text-decoration: none;
-    color: black;
+    color: var(--offblack);
 }
 
 .block__img {
@@ -291,7 +306,7 @@ p {
 
 .filter {
     margin: 24px 24px 0 0;
-    background-color: #B7D9E8;
+    background-color: var(--secondary);
     padding: .6em 1em;
     border-radius: 6px;
     cursor: pointer;
@@ -300,13 +315,13 @@ p {
 
 .filter button {
     border: none;
-    color: black;
+    color: var(--offblack);
     background-color: transparent;
     cursor: pointer;
 }
 
 .filter:active {
-    background-color: #EB5B29 !important;
+    background-color: var(--accent) !important;
 }
 
 
@@ -324,7 +339,7 @@ p {
 .filters {
     width: 20%;
     max-height: 480px;
-    background-color: #FAFAFA;
+    background-color: var(--white);
     padding: calc(32px - 0.83em) 32px;
     border: none;
     border-radius: 12px;
@@ -350,7 +365,7 @@ p {
 .btn--extra {
     border: none;
     background-color: transparent;
-    color: #EB5B29;
+    color: var(--accent);
     cursor: pointer;
     font-size: 1em;
     font-weight: 500;
@@ -358,7 +373,7 @@ p {
 }
 
 .btn--extra:hover {
-    color: black;
+    color: var(--offblack);
 }
 
 .projects {
@@ -398,7 +413,7 @@ p {
 }
 
 .project__box__item {
-    background-color: #FAFAFA;
+    background-color: var(--white);
     padding: 1.5em;
     width: 1000px;
     border: none;
@@ -419,7 +434,7 @@ p {
 
 .tags__tag {
     padding: 0.3em 2em;
-    background-color: #B7D9E8;
+    background-color: var(--secondary);
     border-radius: 6px;
     margin: 0 0.3em;
 }
@@ -431,7 +446,7 @@ p {
 
 .project__info__link {
     text-decoration: none;
-    color: black;
+    color: var(--offblack);
     padding-right: 6px;
 }
 
@@ -457,7 +472,7 @@ p {
 }
 
 .messages__groups {
-    background-color: #FAF6EE;
+    background-color: var(--offwhite);
     height: 100vh;
 }
 
@@ -480,7 +495,7 @@ p {
     padding: 0.5em;
     border: 1px solid #3b3c3d;
     border-radius: 6px;
-    background-color: #FAF6EE;
+    background-color: var(--offwhite);
     color: #667085;
     justify-content: center;
     margin-left: 24px;
