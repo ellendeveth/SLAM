@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berichten</title>
-    <link rel="stylesheet" href="https://use.typekit.net/hbs6zbg.css">
-    <link rel="stylesheet" href="style/style.css">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Berichten</title>
+        <link rel="stylesheet" href="https://use.typekit.net/hbs6zbg.css">
+        <link rel="stylesheet" href="style/style.css">
+    </head>
 </head>
-</head>
+
 <body>
     <div class="container--messages">
         <div class="messages__groups">
             <div class="messages__chat__info">
-                <img class="chat__info__img" src="assets/img/arrow.png" alt="arrow">
+                <a href="index.php"><img class="chat__info__img" src="assets/img/arrow.png" alt="arrow"></a>
                 <h2>Chats</h2>
             </div>
 
@@ -28,22 +31,22 @@
                     <img class="projects__img" src="assets/img/profile-pic.png" alt="profile-pic">
                     <div class="chat__groups__text">
                         <h3 class="subtitle-big">Groep 1</h3>
-                        <p>kakakaka</p>
-                    </div>                    
+                        <p>message text</p>
+                    </div>
                 </div>
                 <div class="chat__groups">
                     <img class="projects__img" src="assets/img/profile-pic.png" alt="profile-pic">
                     <div class="chat__groups__text">
                         <h3 class="subtitle-big">Groep 2</h3>
-                        <p>pipipipi</p>
-                    </div>                    
+                        <p>message text</p>
+                    </div>
                 </div>
                 <div class="chat__groups">
                     <img class="projects__img" src="assets/img/profile-pic.png" alt="profile-pic">
                     <div class="chat__groups__text">
                         <h3 class="subtitle-big">Groep 3</h3>
-                        <p>hihihihi</p>
-                    </div>                    
+                        <p>message text</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -57,4 +60,5 @@
         </div>
     </div>
 </body>
+
 </html>

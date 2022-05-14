@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="https://use.typekit.net/hbs6zbg.css">
     <link rel="stylesheet" href="style/style.css">
 </head>
@@ -71,12 +71,16 @@
                         <div class="project__box">
                             <div class="project__box__profile">
                                 <img class="projects__img" src="assets/img/profile-pic.png" alt="profile-pic">
-                                <h2>Project 1</h2>
+                                <h2>Naam VZW</h2>
                             </div>
+
 
                             <div class="project__box__item">
                                 <div>
-                                    <h3>Titel project</h3>
+                                    <a href="project.php" class="project__title">
+                                        <h3>Titel project</h3>
+                                    </a>
+
                                     <ul class="project__tags">
                                         <li class="tags__tag">tag</li>
                                         <li class="tags__tag">tag</li>
@@ -85,10 +89,13 @@
                                     <p>beschrijving</p>
                                 </div>
 
-                                <div class="project__info">
-                                    <a class="project__info__link" href="">Meer info</a>
-                                    <img class="project__info__img" src="assets/img/arrow.png" alt="arrow">
-                                </div>
+                                <a href="project.php">
+                                    <div class="project__info">
+                                        <a class="project__info__link" href="project.php">Meer info</a>
+                                        <img class="project__info__img" src="assets/img/arrow.png" alt="arrow">
+                                    </div>
+                                </a>
+
                             </div>
 
                         </div>
