@@ -30,7 +30,7 @@ variables
     --primary: #430BC8;
     --secondary: #B7D9E8;
     --accent: #EB5B29;
-    --neutral: #F1E7D2;
+    --neutral: #fffcf5;
     --offblack: #0E0E14;
     --offwhite: #FAF6EE;
     --white: #ffffff;
@@ -102,6 +102,7 @@ variables
 
 body {
     margin: 0;
+    /* background-color: var(--neutral); */
 }
 
 * {
@@ -343,7 +344,7 @@ p {
     padding: calc(32px - 0.83em) 32px;
     border: none;
     border-radius: 12px;
-    filter: drop-shadow(8px 8px 6px #34343415);
+    box-shadow: 0px 16px 40px rgba(75, 75, 75, 0.15);
 }
 
 .filter__container {
@@ -373,6 +374,11 @@ p {
 }
 
 .btn--extra:hover {
+    color: var(--offblack);
+}
+
+.project__title {
+    text-decoration: none;
     color: var(--offblack);
 }
 
@@ -415,10 +421,10 @@ p {
 .project__box__item {
     background-color: var(--white);
     padding: 1.5em;
-    width: 1000px;
+    width: 100%;
     border: none;
     border-radius: 12px;
-    filter: drop-shadow(8px 8px 6px #34343415);
+    box-shadow: 0px 16px 40px rgba(75, 75, 75, 0.15);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -434,9 +440,10 @@ p {
 
 .tags__tag {
     padding: 0.3em 2em;
-    background-color: var(--secondary);
+    background-color: var(--primary);
     border-radius: 6px;
     margin: 0 0.3em;
+    color: var(--offwhite);
 }
 
 .project__info {
@@ -447,18 +454,31 @@ p {
 .project__info__link {
     text-decoration: none;
     color: var(--offblack);
-    padding-right: 6px;
+    border-bottom: 1px solid transparent;
+    transition: all .2s;
+}
+
+.project__info__link:hover {
+    border-color: var(--accent);
 }
 
 .project__info__img {
     width: 16px;
     height: 16px;
-
+    padding-left: 6px;
 }
 
 /*
     chat page
 */
+.messages__chat__info a {
+    margin-top: 4px;
+}
+
+.messages__chat__info h2 {
+    margin-left: 12px;
+}
+
 .container--messages {
     display: grid;
     grid-template-columns: 25vw 1fr;
@@ -542,6 +562,191 @@ p {
     height: 140px;
     display: flex;
 }
+
+/* 
+    individual project
+*/
+.return__btn {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 3em;
+    color: var(--offblack);
+}
+
+.return__btn h3 {
+    margin: 0 0 0 12px;
+}
+
+.project__info__expanded {
+    width: 65%;
+}
+
+.project__sidebar {
+    width: 25%;
+}
+
+.about__org {
+    margin-bottom: 32px;
+}
+
+.btn__container {
+    display: flex;
+    margin-top: 4em;
+}
+
+.btn__variant {
+    background-color: transparent;
+    border: 1px solid var(--offblack);
+    color: var(--offblack);
+    margin-right: 2em;
+}
+
+.learning__goals {
+    margin-bottom: 32px;
+    box-shadow: 0px 16px 40px rgba(75, 75, 75, 0.15);
+    padding: 32px;
+    border-radius: 8px;
+}
+
+.learning__goals ul {
+    padding-left: 16px;
+}
+
+.learning__goals ul li {
+    margin-bottom: 12px;
+}
+
+.members {
+    box-shadow: 0px 16px 40px rgba(75, 75, 75, 0.15);
+    padding: 32px;
+    border-radius: 8px;
+}
+
+.members ul {
+    padding-left: 0;
+}
+
+.members ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.members__img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    margin-right: 16px;
+}
+
+/* 
+    confirmation page
+*/
+.btn__anchor {
+    line-height: 36px;
+    margin-top: 16px;
+}
+
+.messages__chat__emptystate p {
+    max-width: 360px;
+    text-align: center;
+}
+
+.confirmation__emptystate {
+    margin-top: 16vh;
+}
+
+/* 
+    my projects
+*/
+.sidebar__myprojects {
+    width: 30%;
+}
+
+.project__card {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 16px 40px rgba(75, 75, 75, 0.15);
+    padding: 32px;
+    border-radius: 8px;
+    border: 3px solid var(--accent);
+}
+
+.project__box__profile h3 {
+    margin: 0;
+}
+
+.overlapping__img {
+    margin-right: -24px;
+}
+
+.project__summary span {
+    font-weight: 700;
+}
+
+.project__summary p {
+    margin: 0 0 16px;
+}
+
+.finished__projects {
+    margin-top: 56px;
+}
+
+.project__card__finished {
+    filter: opacity(50%);
+    border: none;
+}
+
+.project__details {
+    width: 65%;
+}
+
+.project__details h1 {
+    text-align: left;
+}
+
+.external__documents {
+    margin-top: 32px;
+}
+
+.external__link {
+    background-color: var(--gray);
+    display: inline-block;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.external__link p {
+    display: inline;
+}
+
+.tasks {
+    margin-top: 32px;
+}
+
+.tasks {
+    margin-top: 32px;
+}
+
+.task__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+    margin-bottom: 24px;
+}
+
+.checkbox__task {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox__task p {
+    margin-left: 12px;
+}
+
 
 /*
     media queries
