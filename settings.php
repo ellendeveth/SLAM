@@ -1,4 +1,39 @@
-<!DOCTYPE html>
+<?php
+    include_once('bootstrap.php');
+    Security::onlyLoggedInUsers();
+
+    try {
+        $user = new User();
+        $sessionId = $_SESSION['id'];
+        $userDataFromId = User::getUserDataFromId($sessionId);
+        var_dump($userDataFromId);
+        $isStudent = User::getStudentById($_SESSION['id']);
+    } catch (\Throwable $e) {
+        $error = $e->getMessage();
+    }
+
+    if ($isStudent) {
+        if (!empty($_POST["editProfile"])) {
+            $user = new User();
+            $user->setFirstname($_POST["name"]);
+            $user->setLastname($_POST["lastname"]);
+            $user->setSchool($_POST["school"]);
+            $user->setEducation($_POST["education"]);
+            $user->setId($_SESSION['id']);
+            $user->updateStudentProfile();
+        }
+    } else {
+        if (!empty($_POST["editProfile"])) {
+            $user = new User();
+            $user->setFirstname($_POST["name"]);
+            $user->setDescription($_POST["description"]);
+            $user->setId($_SESSION['id']);
+            $user->updateOrganisationProfile();
+        }
+    }
+   
+
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -39,37 +74,49 @@
                     <div class="subtitle-big">Wijzig profielfoto</div>
                 </div>
 
-                <div class="form__container">
-                    <label class="form__text" for="email">Vooraam</label>
-                    <input class="form__input form__input__large" type="text" name="email">
-                </div>
+                <?php if ($isStudent): ?>
+                    <div class="form__container">
+                        <label class="form__text" for="name">Voornaam</label>
+                        <input class="form__input form__input__large" type="text" name="name" value="<?php echo $userDataFromId['name'] ?>">
+                    </div>
 
-                <div class="form__container">
-                    <label class="form__text" for="email">Achternaam</label>
-                    <input class="form__input form__input__large" type="text" name="email">
-                </div>
+                    <div class="form__container">
+                        <label class="form__text" for="lastname">Achternaam</label>
+                        <input class="form__input form__input__large" type="text" name="lastname" value="<?php echo $userDataFromId['last_name'] ?>">
+                    </div>
 
-                <div class="form__container">
-                    <label class="form__text" for="email">Email</label>
-                    <input class="form__input form__input__large" type="text" name="email">
-                </div>
+                    <div class="form__container">
+                        <label class="form__text" for="email">Email</label>
+                        <input class="form__input form__input__large" type="text" name="email" value="<?php echo $userDataFromId['email']; ?>" readonly>
+                    </div>
 
-                <div class="form__container">
-                    <label class="form__text" for="email">School</label>
-                    <input class="form__input form__input__large" type="text" name="email">
-                </div>
+                    <div class="form__container">
+                        <label class="form__text" for="school">School</label>
+                        <input class="form__input form__input__large" type="text" name="school" value="<?php echo $userDataFromId['school'] ?>">
+                    </div>
 
-                <div class="form__container">
-                    <label class="form__text" for="email">Opleiding</label>
-                    <input class="form__input form__input__large" type="text" name="email">
-                </div>
+                    <div class="form__container">
+                        <label class="form__text" for="education">Opleiding</label>
+                        <input class="form__input form__input__large" type="text" name="education" value="<?php echo $userDataFromId['education'] ?>">
+                    </div>
+                <?php else: ?>
+                    <div class="form__container">
+                        <label class="form__text" for="name">Naam</label>
+                        <input class="form__input form__input__large" type="text" name="name">
+                    </div>
+
+                    <div class="form__container">
+                        <label class="form__text" for="description">Beschrijving VZW</label>
+                        <input class="form__input form__input__large" type="text" name="description">
+                    </div>
+                <?php endif; ?>
 
                 <div class="btn__container">
                     <div>
-                        <input class="btn btn__variant" type="submit" name="login" value="Annuleren">
+                        <input class="btn btn__variant" type="submit" name="annuleren" value="Annuleren">
                     </div>
                     <div>
-                        <input class="btn" type="submit" name="login" value="Opslaan">
+                        <input class="btn" type="submit" name="editProfile" value="Opslaan">
                     </div>
                 </div>
             </div>

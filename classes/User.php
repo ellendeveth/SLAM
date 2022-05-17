@@ -319,4 +319,14 @@
             $statement->bindValue(':id', $this->id);
             return $statement->execute();
         }
+
+        public function updateOrganisationProfile()
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("UPDATE users SET name = :name, description = :description WHERE id = :id");
+            $statement->bindValue(':name', $this->name);
+            $statement->bindValue(':description', $this->description);
+            $statement->bindValue(':id', $this->id);
+            return $statement->execute();
+        }
     }
