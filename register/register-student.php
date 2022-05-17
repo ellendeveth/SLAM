@@ -10,8 +10,10 @@
              $user->setConfirm($_POST['confirm']);
              $user->setSchool($_POST['school']);
              $user->setEducation($_POST['education']);
-             $user->register();
-             header('Location: competentions.php');
+             $user->setStudent(1);
+             $user->registerStudent();
+             
+             header('Location: competences.php');
          } catch (\Throwable $e) {
              $error = $e->getMessage();
          }
@@ -69,7 +71,7 @@
             </div>
             
             <div >
-                <input class="btn" type="submit" name="submit" value="Registreer">
+                <input class="btn" type="submit" name="register" value="Registreer">
             </div>
 
             <div class="form__span">

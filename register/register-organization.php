@@ -1,4 +1,22 @@
-<!DOCTYPE html>
+<?php
+     include_once('../bootstrap.php');
+
+     if (!empty($_POST['register'])) {
+         try {
+             $user = new User();
+             $user->setName($_POST['name']);
+             $user->setEmail($_POST['email']);
+             $user->setPassword($_POST['password']);
+             $user->setConfirm($_POST['confirm']);
+             $user->setStudent(0);
+             $user->registerOrganisation();
+             
+             header('Location: ../index.php');
+         } catch (\Throwable $e) {
+             $error = $e->getMessage();
+         }
+     }
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -35,7 +53,7 @@
             </div>
             
             <div >
-                <input class="btn" type="submit" name="submit" value="Registreer">
+                <input class="btn" type="submit" name="register" value="Registreer">
             </div>
 
             <div class="form__span">
