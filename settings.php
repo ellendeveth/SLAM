@@ -6,7 +6,6 @@
         $user = new User();
         $sessionId = $_SESSION['id'];
         $userDataFromId = User::getUserDataFromId($sessionId);
-        var_dump($userDataFromId);
         $isStudent = User::getStudentById($_SESSION['id']);
     } catch (\Throwable $e) {
         $error = $e->getMessage();
@@ -76,13 +75,13 @@
                     <?php echo $success ?>
                 </div>
             <?php endif; ?>
-            <div class="user__settings">
-                <div class="user__img">
-                    <img src="assets/img/profile-pic.png" alt="" class="projects__img">
-                    <div class="subtitle-big">Wijzig profielfoto</div>
-                </div>
+            <form action="" method="post">
+                <div class="user__settings">
+                    <div class="user__img">
+                        <img src="assets/img/profile-pic.png" alt="" class="projects__img">
+                        <div ><input class="upload__btn subtitle-big" value="Wijzig profielfoto" type='submit' name="profilepic" ></div>
+                    </div>
 
-                <form action="" method="post">
                     <?php if ($isStudent): ?>
                         <div class="form__container">
                             <label class="form__text" for="name">Voornaam</label>
@@ -128,8 +127,8 @@
                             <input class="btn" type="submit" name="editProfile" value="Opslaan">
                         </div>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 
