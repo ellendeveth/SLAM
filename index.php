@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+<?php
+    include_once('bootstrap.php');
+    Security::onlyLoggedInUsers();
+
+    //check if user is student
+    $isStudent = User::getStudentById($_SESSION['id']);
+
+    //get posts
+    $projects = Project::getAllProjects();
+    var_dump($projects);
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -63,22 +73,28 @@
         </div>
 
         <div class="projects">
-            <h1>Projecten</h1>
+            <div class="projects__newProject">
+                <h1>Projecten</h1>
+                <?php if (!$isStudent): ?>
+                    <a href="add-project.php" class="btn--extra">+ Nieuw project</a>
+                <?php endif; ?>
+            </div>
+            
             <div class="projects__box">
                 <ul class="project__box__li">
-                    <!-- foreach ($projects as $project):  -->
+                    <?php foreach ($projects as $project): ?>
                     <li>
                         <div class="project__box">
                             <div class="project__box__profile">
                                 <img class="projects__img" src="assets/img/profile-pic.png" alt="profile-pic">
-                                <h2>Naam VZW</h2>
+                                <h2><?php echo $project['name']; ?></h2>
                             </div>
 
 
                             <div class="project__box__item">
                                 <div>
-                                    <a href="project.php" class="project__title">
-                                        <h3>Titel project</h3>
+                                    <a href="project.php?project=<?php echo $project[0]; ?>" class="project__title">
+                                        <h3><?php echo $project['title']; ?></h3>
                                     </a>
 
                                     <ul class="project__tags">
@@ -86,12 +102,12 @@
                                         <li class="tags__tag">tag</li>
                                         <li class="tags__tag">tag</li>
                                     </ul>
-                                    <p>beschrijving</p>
+                                    <p><?php echo $project['description']; ?></p>
                                 </div>
 
                                 <a href="project.php">
                                     <div class="project__info">
-                                        <a class="project__info__link" href="project.php">Meer info</a>
+                                        <a class="project__info__link" href="project.php?project=<?php echo $project[0]; ?>">Meer info</a>
                                         <img class="project__info__img" src="assets/img/arrow.png" alt="arrow">
                                     </div>
                                 </a>
@@ -100,7 +116,7 @@
 
                         </div>
                     </li>
-                    <!--  endforeach; -->
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
