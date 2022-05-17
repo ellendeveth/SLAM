@@ -21,6 +21,9 @@
             $user->setEducation($_POST["education"]);
             $user->setId($_SESSION['id']);
             $user->updateStudentProfile();
+            if ($user->updateStudentProfile()) {
+                $success = "Gegevens gewijzigd";
+            }
         }
     } else {
         if (!empty($_POST["editProfile"])) {
@@ -68,57 +71,64 @@
 
         <div class="settings__active">
             <h2>Wijzig gegevens</h2>
+            <?php if (isset($success)): ?>
+                <div>
+                    <?php echo $success ?>
+                </div>
+            <?php endif; ?>
             <div class="user__settings">
                 <div class="user__img">
                     <img src="assets/img/profile-pic.png" alt="" class="projects__img">
                     <div class="subtitle-big">Wijzig profielfoto</div>
                 </div>
 
-                <?php if ($isStudent): ?>
-                    <div class="form__container">
-                        <label class="form__text" for="name">Voornaam</label>
-                        <input class="form__input form__input__large" type="text" name="name" value="<?php echo $userDataFromId['name'] ?>">
-                    </div>
+                <form action="" method="post">
+                    <?php if ($isStudent): ?>
+                        <div class="form__container">
+                            <label class="form__text" for="name">Voornaam</label>
+                            <input class="form__input form__input__large" type="text" name="name" value="<?php echo $userDataFromId['name'] ?>">
+                        </div>
 
-                    <div class="form__container">
-                        <label class="form__text" for="lastname">Achternaam</label>
-                        <input class="form__input form__input__large" type="text" name="lastname" value="<?php echo $userDataFromId['last_name'] ?>">
-                    </div>
+                        <div class="form__container">
+                            <label class="form__text" for="lastname">Achternaam</label>
+                            <input class="form__input form__input__large" type="text" name="lastname" value="<?php echo $userDataFromId['last_name'] ?>">
+                        </div>
 
-                    <div class="form__container">
-                        <label class="form__text" for="email">Email</label>
-                        <input class="form__input form__input__large" type="text" name="email" value="<?php echo $userDataFromId['email']; ?>" readonly>
-                    </div>
+                        <div class="form__container">
+                            <label class="form__text" for="email">Email</label>
+                            <input class="form__input form__input__large" type="text" name="email" value="<?php echo $userDataFromId['email']; ?>" readonly>
+                        </div>
 
-                    <div class="form__container">
-                        <label class="form__text" for="school">School</label>
-                        <input class="form__input form__input__large" type="text" name="school" value="<?php echo $userDataFromId['school'] ?>">
-                    </div>
+                        <div class="form__container">
+                            <label class="form__text" for="school">School</label>
+                            <input class="form__input form__input__large" type="text" name="school" value="<?php echo $userDataFromId['school'] ?>">
+                        </div>
 
-                    <div class="form__container">
-                        <label class="form__text" for="education">Opleiding</label>
-                        <input class="form__input form__input__large" type="text" name="education" value="<?php echo $userDataFromId['education'] ?>">
-                    </div>
-                <?php else: ?>
-                    <div class="form__container">
-                        <label class="form__text" for="name">Naam</label>
-                        <input class="form__input form__input__large" type="text" name="name">
-                    </div>
+                        <div class="form__container">
+                            <label class="form__text" for="education">Opleiding</label>
+                            <input class="form__input form__input__large" type="text" name="education" value="<?php echo $userDataFromId['education'] ?>">
+                        </div>
+                    <?php else: ?>
+                        <div class="form__container">
+                            <label class="form__text" for="name">Naam</label>
+                            <input class="form__input form__input__large" type="text" name="name">
+                        </div>
 
-                    <div class="form__container">
-                        <label class="form__text" for="description">Beschrijving VZW</label>
-                        <input class="form__input form__input__large" type="text" name="description">
-                    </div>
-                <?php endif; ?>
+                        <div class="form__container">
+                            <label class="form__text" for="description">Beschrijving VZW</label>
+                            <input class="form__input form__input__large" type="text" name="description">
+                        </div>
+                    <?php endif; ?>
 
-                <div class="btn__container">
-                    <div>
-                        <input class="btn btn__variant" type="submit" name="annuleren" value="Annuleren">
+                    <div class="btn__container">
+                        <div>
+                            <input class="btn btn__variant" type="submit" name="annuleren" value="Annuleren">
+                        </div>
+                        <div>
+                            <input class="btn" type="submit" name="editProfile" value="Opslaan">
+                        </div>
                     </div>
-                    <div>
-                        <input class="btn" type="submit" name="editProfile" value="Opslaan">
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

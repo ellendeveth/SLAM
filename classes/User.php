@@ -310,10 +310,9 @@
         public function updateStudentProfile()
         {
             $conn = Db::getInstance();
-            $statement = $conn->prepare("UPDATE users SET name = :name, lastname = :lastname, school = :school, education = :education WHERE id = :id");
-            $statement->bindValue(':name', $this->name);
+            $statement = $conn->prepare("UPDATE users SET name = :name, last_name = :lastname, school = :school, education = :education WHERE id = :id");
+            $statement->bindValue(':name', $this->firstname);
             $statement->bindValue(':lastname', $this->lastname);
-            $statement->bindValue(':email', $this->email);
             $statement->bindValue(':school', $this->school);
             $statement->bindValue(':education', $this->education);
             $statement->bindValue(':id', $this->id);
