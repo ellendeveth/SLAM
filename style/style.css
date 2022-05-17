@@ -832,6 +832,16 @@ p {
     height: 64px;
 }
 
+.upload__btn {
+    border: none;
+    background: none;
+}
+
+.upload__btn:hover {
+    cursor: pointer;
+    color:#EB5B29;
+}
+
 
 /*
     add post
