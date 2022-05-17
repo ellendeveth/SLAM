@@ -7,8 +7,13 @@
             $user = new User();
             $user->setEmail($_POST['email']);
             $user->setPassword($_POST['password']);
-            $user->canLogin();
-            header('Location: index.php');
+            if ($user->canLogin()) {
+                $id = User::getIdByEmail($user->getEmail());
+                session_start();
+                $_SESSION['id'] = $id;
+                $_SESSION['email']= $user->getEmail();
+                header('Location: index.php');
+            }
         } catch (\Throwable $e) {
             $error = $e->getMessage();
         }
