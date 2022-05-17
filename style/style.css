@@ -254,7 +254,7 @@ p {
 
 .btn-register {
     display: flex;
-    width: 80vw;
+    width: 340px;
     height: 34px;
     text-align: center;
     align-items: center;
@@ -466,6 +466,13 @@ p {
     width: 16px;
     height: 16px;
     padding-left: 6px;
+}
+
+.projects__newProject {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /*
@@ -827,6 +834,42 @@ p {
 
 
 /*
+    add post
+*/
+.add-project {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.project__input {
+    padding: 0.2em 1em;
+    width: 500px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--gray);
+    margin: 2em;
+}
+
+.project__input.desc {
+    height: 100px;
+}
+
+.project__btn {
+    background-color: var(--primary);
+    border: none;
+    border-radius: 6px;
+    color: var(--white);
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 320px;
+    height: 40px;
+}
+
+
+/*
     media queries
 */
 
@@ -838,7 +881,7 @@ p {
     }
 
     .container__block {
-        height: 280px;
+        height: 380px;
         width: 420px;
     }
 }
