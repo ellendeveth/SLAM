@@ -4,10 +4,11 @@
      if (!empty($_POST['register'])) {
          try {
              $user = new User();
-             $user->setName($_POST['name']);
+             $user->setFirstname($_POST['name']);
              $user->setEmail($_POST['email']);
              $user->setPassword($_POST['password']);
              $user->setConfirm($_POST['confirm']);
+             $user->setDescription($_POST['description']);
              $user->setStudent(0);
              $user->registerOrganisation();
              
@@ -34,6 +35,11 @@
             <div class="form__container">
                 <label class="form__text" for="name">Naam organisatie</label>
                 <input class="form__input" type="text" name="name">
+            </div>
+
+            <div class="form__container">
+                <label class="form__text" for="description">Beschrijving organisatie</label>
+                <input class="form__input" type="text" name="description">
             </div>
 
             <div class="form__container">

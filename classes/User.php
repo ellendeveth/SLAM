@@ -244,8 +244,9 @@
                 throw new Exception("Passwords do not match");
             }
             $conn = Db::getInstance();
-            $statement = $conn->prepare("INSERT INTO users (name, email, password, is_student) VALUES (:name, :email, :password, :student)");
+            $statement = $conn->prepare("INSERT INTO users (name, description, email, password, is_student) VALUES (:name, :description, :email, :password, :student)");
             $statement->bindValue(':name', $this->name);
+            $statement->bindValue(':description', $this->description);
             $statement->bindValue(':email', $this->email);
             $statement->bindValue(':password', $password);
             $statement->bindValue(':student', $this->student);

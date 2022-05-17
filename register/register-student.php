@@ -4,7 +4,8 @@
      if (!empty($_POST['register'])) {
          try {
              $user = new User();
-             $user->setName($_POST['name']);
+             $user->setFirstname($_POST['name']);
+             $user->setLastname($_POST["lastname"]);
              $user->setEmail($_POST['email']);
              $user->setPassword($_POST['password']);
              $user->setConfirm($_POST['confirm']);
@@ -40,8 +41,13 @@
             <?php endif; ?>
             
             <div class="form__container">
-                <label class="form__text" for="name">Naam</label>
+                <label class="form__text" for="name">Voornaam</label>
                 <input class="form__input" type="text" name="name">
+            </div>
+
+            <div class="form__container">
+                <label class="form__text" for="lastname">Achternaam</label>
+                <input class="form__input" type="text" name="lastname">
             </div>
 
             <div class="form__container">
