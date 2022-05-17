@@ -7,6 +7,7 @@
         private $confirm;
         private $school;
         private $education;
+        private $student;
         
 
         /**
@@ -131,8 +132,27 @@
 
             return $this;
         }
+        /**
+        * Get the value of student
+        */
+        public function getStudent()
+        {
+            return $this->student;
+        }
 
-        public function register()
+        /**
+         * Set the value of student
+         *
+         * @return  self
+         */
+        public function setStudent($student)
+        {
+            $this->student = $student;
+
+            return $this;
+        }
+
+        public function registerStudent()
         {
             $options = [
                 'cost' => 12,
@@ -143,12 +163,31 @@
                 throw new Exception("Passwords do not match");
             }
             $conn = Db::getInstance();
-            $statement = $conn->prepare("INSERT INTO users (name, email, password, school, education) VALUES (:name, :email, :password, :school, :education)");
+            $statement = $conn->prepare("INSERT INTO users (name, email, password, school, education, is_student) VALUES (:name, :email, :password, :school, :education, :student)");
             $statement->bindValue(':name', $this->name);
             $statement->bindValue(':email', $this->email);
             $statement->bindValue(':password', $password);
             $statement->bindValue(':school', $this->school);
             $statement->bindValue(':education', $this->education);
+            $statement->bindValue(':student', $this->student);
+            return $statement->execute();
+        }
+        public function registerOrganisation()
+        {
+            $options = [
+                'cost' => 12,
+            ];
+            $password = password_hash($this->password, PASSWORD_BCRYPT, $options);
+            //check password and confirm password
+            if ($this->password != $this->confirm) {
+                throw new Exception("Passwords do not match");
+            }
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("INSERT INTO users (name, email, password, is_student) VALUES (:name, :email, :password, :student)");
+            $statement->bindValue(':name', $this->name);
+            $statement->bindValue(':email', $this->email);
+            $statement->bindValue(':password', $password);
+            $statement->bindValue(':student', $this->student);
             return $statement->execute();
         }
 
@@ -169,6 +208,30 @@
                 }
             } else {
                 throw new Exception("User does not exist.");
+            }
+        }
+
+        public static function getIdByEmail($email)
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("select id from users where email = :email");
+            $statement->bindValue(":email", $email);
+            $statement->execute();
+            $result = $statement->fetch();
+            return $result['id'];
+        }
+
+        public static function getStudentById($id)
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("SELECT * from users WHERE id = :id AND is_student = 1 ");
+            $statement->bindValue(":id", $id);
+            $statement->execute();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            if ($result) {
+                return true;
+            } else {
+                return false;
             }
         }
     }
