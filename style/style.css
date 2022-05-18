@@ -188,6 +188,10 @@ p {
     border: var(--accent) solid 0.1px;
 }
 
+.form__input .description {
+    height: 100px;
+}
+
 .form__text {
     margin-bottom: 6px;
     color: var(--offblack);

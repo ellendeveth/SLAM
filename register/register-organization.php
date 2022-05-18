@@ -39,7 +39,7 @@
 
             <div class="form__container">
                 <label class="form__text" for="description">Beschrijving organisatie</label>
-                <input class="form__input" type="text" name="description">
+                <textarea class="form__text description" cols="30" rows="5" name="description"></textarea>
             </div>
 
             <div class="form__container">
