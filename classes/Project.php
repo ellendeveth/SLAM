@@ -144,4 +144,13 @@
             $statement->bindValue(':post_id', $this->id);
             return $statement->execute();
         }
+
+        public static function getOrganisationOfProject($id)
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare('SELECT * FROM posts INNER JOIN users ON posts.user_id = users.id WHERE posts.id = :id');
+            $statement->bindValue(':id', $id);
+            $statement->execute();
+            return $statement->fetch(PDO::FETCH_ASSOC);
+        }
     }

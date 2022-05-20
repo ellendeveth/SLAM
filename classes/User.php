@@ -11,6 +11,7 @@
         private $student;
         private $id;
         private $description;
+        private $profilePicture;
         
 
         /**
@@ -211,6 +212,26 @@
 
             return $this;
         }
+
+        /**
+         * Get the value of profilePicture
+         */
+        public function getProfilePicture()
+        {
+            return $this->profilePicture;
+        }
+
+        /**
+         * Set the value of profilePicture
+         *
+         * @return  self
+         */
+        public function setProfilePicture($profilePicture)
+        {
+            $this->profilePicture = $profilePicture;
+
+            return $this;
+        }
         
         public function registerStudent()
         {
@@ -327,5 +348,61 @@
             $statement->bindValue(':description', $this->description);
             $statement->bindValue(':id', $this->id);
             return $statement->execute();
+        }
+
+        public function updatePictureInDatabase($profilePicture, $id)
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("UPDATE users SET profile_pic = :profilePicture WHERE id = :id");
+            $statement->bindValue(":profilePicture", $profilePicture);
+            $statement->bindValue(":id", $id);
+            $statement->execute();
+        }
+
+
+        public function canUploadPicture($sessionId)
+        {
+            $fileName = $_FILES['picture']['name'];
+            $fileTmpName = $_FILES['picture']['tmp_name'];
+            $fileSize = $_FILES['picture']['size'];
+            
+            $fileTarget = 'profile_pictures/' . basename($fileName);
+            $fileExtention = strtolower(pathinfo($fileTarget, PATHINFO_EXTENSION));
+            
+            $fileIsImage = getimagesize($fileTmpName);
+
+            // Check if file is an image
+            if ($fileIsImage !== false) {
+                $canUpload = true;
+            } else {
+                $canUpload = false;
+                throw new Exception("Your uploaded file is not an image.");
+            }
+
+            // Check if file already exists
+            if (file_exists($fileTarget)) {
+                $canUpload = true;
+            }
+
+            // Check if file-size is under 2MB
+            if ($fileSize > 2097152) { // 2097152 bytes
+                $canUpload = false;
+                throw new Exception('Image size can not be larger than 2MB, try again.');
+            }
+
+            // Check if format is JPG, JPEG or PNG
+            if ($fileExtention != 'jpg' && $fileExtention != 'jpeg' && $fileExtention != 'png' && !empty($fileName)) {
+                $canUpload = false;
+                throw new Exception("This filetype is not supported. Upload a jpg or png.");
+            }
+
+            // Upload file when no errors
+            if ($canUpload) {
+                if (move_uploaded_file($fileTmpName, $fileTarget)) {
+                    $profilePicture = basename($fileName);
+                    $this->setProfilePicture($profilePicture);
+                    $this->updatePictureInDatabase($profilePicture, $sessionId);
+                }
+            }
         }
     }
