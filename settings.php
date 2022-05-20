@@ -33,6 +33,15 @@
             $user->updateOrganisationProfile();
         }
     }
+    // if (!empty($_POST['submitProfilePicture'])) {
+    //     try {
+    //         $user->canUploadPicture($sessionId);
+    //         $success = "Profile picture saved. Refresh to see changes.";
+    //     } catch (Exception $e) {
+    //         $error = $e->getMessage();
+    //     }
+    // }
+
    
 
 ?><!DOCTYPE html>
@@ -61,7 +70,7 @@
                     <li><a href="#">Meldingen beheren <img src="assets/img/arrow.png" alt="arrow"></a></li>
                     <li><a href="#">Privacy policy <img src="assets/img/arrow.png" alt="arrow"></a></li>
                     <li><a href="#">Wachtwoord wijzigen <img src="assets/img/arrow.png" alt="arrow"></a></li>
-                    <li><a href="#">Account verwijderen <img src="assets/img/arrow.png" alt="arrow"></a></li>
+                    <li><a href="logout.php">Account verwijderen <img src="assets/img/arrow.png" alt="arrow"></a></li>
                 </ul>
 
                 <a href="login.php" class="subtitle-big logout">Uitloggen</a>
@@ -79,7 +88,20 @@
                 <div class="user__settings">
                     <div class="user__img">
                         <img src="assets/img/profile-pic.png" alt="" class="projects__img">
-                        <div ><input class="upload__btn subtitle-big" value="Wijzig profielfoto" type='submit' name="profilepic" ></div>
+                        <div >
+                            <div id="upload-btn" class="upload__btn subtitle-big" name="profilepic" >Wijzig profielfoto </div>
+                            <div class="upload-file" style="display: none;">
+                                <form action="" method="post" enctype="multipart/form-data">
+                                    <fieldset class="upload__form">
+                                        <div class="">
+                                            <input class="upload__form__file" type="file" class="" name="picture" id="profilePicture">
+                                            <input class="upload__form__btn" type="submit" class="" name="submitProfilePicture" value="Upload">
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+
+                        </div>
                     </div>
 
                     <?php if ($isStudent): ?>
@@ -131,7 +153,7 @@
             </form>
         </div>
     </div>
-
+<script src="js/profilepicture.js"></script>
 </body>
 
 </html>

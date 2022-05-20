@@ -4,10 +4,11 @@
 
     //check if user is student
     $isStudent = User::getStudentById($_SESSION['id']);
+    //var_dump($_SESSION['id']);
 
     //get posts
     $projects = Project::getAllProjects();
-    var_dump($projects);
+    //var_dump($projects);
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -83,6 +84,7 @@
             <div class="projects__box">
                 <ul class="project__box__li">
                     <?php foreach ($projects as $project): ?>
+                        <?php var_dump($project[0]); ?>
                     <li>
                         <div class="project__box">
                             <div class="project__box__profile">
@@ -102,7 +104,7 @@
                                         <li class="tags__tag">tag</li>
                                         <li class="tags__tag">tag</li>
                                     </ul>
-                                    <p><?php echo $project['description']; ?></p>
+                                    <p class="project__text"><?php echo $project['description']; ?></p>
                                 </div>
 
                                 <a href="project.php">

@@ -1,4 +1,29 @@
-<!DOCTYPE html>
+<?php
+    include_once('bootstrap.php');
+    Security::onlyLoggedInUsers();
+
+    $projectId = $_GET['project'];
+    $project = Project::getProjectById($projectId);
+
+    $members = Project::getMembersByProject($projectId);
+
+    if (empty($members)) {
+        $emptyState = "Er zijn nog geen studenten toegevoegd aan dit project.";
+    }
+    if (!empty($_POST['addMember'])) {
+        try {
+            $project = new Project();
+            $project->setId($projectId);
+            $project->setUser_id($_SESSION['id']);
+            $project->addMember();
+
+            header('Location: myprojects.php');
+        } catch (\Throwable $e) {
+            $error = $e->getMessage();
+        }
+    }
+
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -24,34 +49,28 @@
 
             <div class="project__box__profile">
                 <img class="projects__img" src="assets/img/profile-pic.png" alt="profile-pic">
-                <h2>Naam VZW</h2>
+                <h2><?php echo $project["name"] ?></h2>
             </div>
 
             <div class="about__org">
-                <h3>Over Naam VZW</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Illo tempore voluptate reprehenderit, aliquid tempora,
-                    consectetur maiores consequatur nobis ratione cupiditate cumque,
-                    facere architecto. Incidunt voluptatem placeat consectetur
-                    rem temporibus dignissimos.</p>
+                <h3>Over VZW</h3>
+                <p><?php echo $project['description_vzw'] ?></p>
             </div>
 
             <div class="about__project">
                 <h3>Over project</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Illo tempore voluptate reprehenderit, aliquid tempora,
-                    consectetur maiores consequatur nobis ratione cupiditate cumque,
-                    facere architecto. Incidunt voluptatem placeat consectetur
-                    rem temporibus dignissimos.</p>
+                <p><?php echo $project['description'] ?></p>
             </div>
 
-            <div class="btn__container">
-                <div>
-                    <input class="btn btn__variant" type="submit" name="login" value="Organisatie contacteren">
-                </div>
-                <div>
-                    <input class="btn" type="submit" name="login" value="Aanmelden">
-                </div>
+            <div>
+                <form action="" method="post" class="btn__container">
+                    <div>
+                        <input class="btn btn__variant" type="submit" name="login" value="Organisatie contacteren">
+                    </div>
+                    <div>
+                        <input class="btn" type="submit" name="addMember" value="Aanmelden">
+                    </div>
+                </form>
             </div>
 
 
@@ -62,6 +81,7 @@
             <div class="learning__goals">
                 <h3>Leerdoelen</h3>
                 <ul>
+                    
                     <li>Kinderbegeleiding</li>
                     <li>Onderwijs</li>
                     <li>Klasplanning</li>
@@ -73,22 +93,16 @@
             <div class="members">
                 <h3>Teamleden</h3>
                 <ul>
-                    <li>
-                        <img class="members__img" src="assets/img/profile-pic.png" alt="profile-pic">
-                        <p>Voornaam Achternaam</p>
-                    </li>
-                    <li>
-                        <img class="members__img" src="assets/img/profile-pic.png" alt="profile-pic">
-                        <p>Voornaam Achternaam</p>
-                    </li>
-                    <li>
-                        <img class="members__img" src="assets/img/profile-pic.png" alt="profile-pic">
-                        <p>Voornaam Achternaam</p>
-                    </li>
-                    <li>
-                        <img class="members__img" src="assets/img/profile-pic.png" alt="profile-pic">
-                        <p>Voornaam Achternaam</p>
-                    </li>
+                    <?php if (!empty($emptyState)): ?>
+                        <li><?php echo $emptyState; ?></li>
+                    <?php else: ?>
+                        <?php foreach ($members as $key => $member): ?>
+                        <li>
+                            <img class="members__img" src="assets/img/profile-pic.png" alt="profile-pic">
+                            <p><?php echo $member["name"] . " " . $member["last_name"] ?></p>
+                        </li>
+                    <?php endforeach; ?>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

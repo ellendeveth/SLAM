@@ -427,6 +427,10 @@ p {
     color: var(--offblack);
 }
 
+.project__text {
+    width: 700px;
+}
+
 .projects {
     width: 75%;
 }
@@ -713,6 +717,66 @@ p {
 /* 
     my projects
 */
+
+/* empty state */
+.emptystate__plus {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 1em;
+}
+
+.emptystate__doc {
+    width: 72px;
+    height: 72px;
+}
+
+.emptystate__title {
+    width: 280px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.emptystate__text {
+    text-align: center;
+    width: 250px;
+    font-weight: lighter;
+    font-size: 14px;
+}
+
+.container--emptystate {
+    /* display: block;
+    margin: 4.5em 9em ; */
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    justify-items: center;
+    align-items: center;
+   
+}
+
+.project__box__emptystate {
+    text-align: center;
+    padding: 1em;
+}
+
+.project__card__emptystate {
+    height: 220px;
+    width: 340px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 16px 40px rgba(75, 75, 75, 0.15);
+    padding: 32px;
+    border-radius: 8px;
+   
+}
+
+.project__emptystate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
 .sidebar__myprojects {
     width: 30%;
 }
@@ -790,6 +854,12 @@ p {
     margin-bottom: 24px;
 }
 
+.tasks__add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .checkbox__task {
     display: flex;
     align-items: center;
@@ -797,6 +867,43 @@ p {
 
 .checkbox__task p {
     margin-left: 12px;
+}
+
+.container--modal {
+    display: none;
+    width: 100%;
+    height: 120%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal__content {
+    width: 400px;
+    height: 280px;
+    background-color: rgb(227, 227, 227);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.modal__task {
+    width: 320px;
+    margin-bottom: 1em;
+}
+
+.modal__close {
+    position: absolute;
+    top: 0;
+    right: 14px;
+    font-size: 36px;
+    transform: rotate(45deg);
+    cursor: pointer;
 }
 
 /* 
@@ -885,6 +992,19 @@ p {
 .upload__btn:hover {
     cursor: pointer;
     color: #EB5B29;
+}
+
+.upload__form {
+    background-color: var(--offwhite);
+    border: none;
+    border-radius: 4px;
+}
+.upload__form__btn {
+    border: none;
+    border-radius: 4px;
+    background-color: #430BC8;
+    color: #fff;
+    padding: 6px;
 }
 
 
