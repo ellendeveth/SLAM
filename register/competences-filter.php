@@ -11,44 +11,46 @@
 </head>
 
 <body class="body--startpage">
-    <div class="container__comp container__comp__filters">
-        <div class="main">
-            <h1 class="form__title">Competenties</h1>
-            <span class="subtitle-big">Selecteer jouw skills.</span>
-        </div>
-
-        <div class="container__filters">
-            <div class="filter">
-                <button>Mobile development</button>
-            </div>
-            <div class="filter">
-                <button>Backend development</button>
-            </div>
-            <div class="filter">
-                <button>Databanken</button>
-            </div>
-            <div class="filter">
-                <button>Frontend development</button>
-            </div>
-            <div class="filter">
-                <button>A.I.</button>
-            </div>
-            <div class="filter">
-                <button>Full-stack development</button>
-            </div>
-            <div class="filter">
-                <button>Netwerken</button>
-            </div>
-            <div class="filter">
-                <button>IoT</button>
-            </div>
-            <div class="filter">
-                <button>Data security</button>
-            </div>
-            <div class="filter">
-                <button>Project management</button>
+    <div class="container">
+        <div class="container__comp__filters">
+            <div class="main">
+                <h1 class="form__title">Competenties</h1>
+                <span class="subtitle-big">Selecteer jouw skills.</span>
             </div>
 
+            <div class="container__filters">
+                <div class="filter">
+                    <button>Mobile development</button>
+                </div>
+                <div class="filter">
+                    <button>Backend development</button>
+                </div>
+                <div class="filter">
+                    <button>Databanken</button>
+                </div>
+                <div class="filter">
+                    <button>Frontend development</button>
+                </div>
+                <div class="filter">
+                    <button>A.I.</button>
+                </div>
+                <div class="filter">
+                    <button>Full-stack development</button>
+                </div>
+                <div class="filter">
+                    <button>Netwerken</button>
+                </div>
+                <div class="filter">
+                    <button>IoT</button>
+                </div>
+                <div class="filter">
+                    <button>Data security</button>
+                </div>
+                <div class="filter">
+                    <button>Project management</button>
+                </div>
+
+            </div>
         </div>
     </div>
 
