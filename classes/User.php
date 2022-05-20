@@ -223,8 +223,8 @@
                 throw new Exception("Passwords do not match");
             }
             $conn = Db::getInstance();
-            $statement = $conn->prepare("INSERT INTO users (name, lastname, email, password, school, education, is_student) VALUES (:name, :lastname, :email, :password, :school, :education, :student)");
-            $statement->bindValue(':name', $this->name);
+            $statement = $conn->prepare("INSERT INTO users (name, last_name, email, password, school, education, is_student) VALUES (:name, :lastname, :email, :password, :school, :education, :student)");
+            $statement->bindValue(':name', $this->firstname);
             $statement->bindValue(':lastname', $this->lastname);
             $statement->bindValue(':email', $this->email);
             $statement->bindValue(':password', $password);
@@ -244,8 +244,8 @@
                 throw new Exception("Passwords do not match");
             }
             $conn = Db::getInstance();
-            $statement = $conn->prepare("INSERT INTO users (name, description, email, password, is_student) VALUES (:name, :description, :email, :password, :student)");
-            $statement->bindValue(':name', $this->name);
+            $statement = $conn->prepare("INSERT INTO users (name, description_vzw, email, password, is_student) VALUES (:name, :description, :email, :password, :student)");
+            $statement->bindValue(':name', $this->firstname);
             $statement->bindValue(':description', $this->description);
             $statement->bindValue(':email', $this->email);
             $statement->bindValue(':password', $password);
@@ -322,8 +322,8 @@
         public function updateOrganisationProfile()
         {
             $conn = Db::getInstance();
-            $statement = $conn->prepare("UPDATE users SET name = :name, description = :description WHERE id = :id");
-            $statement->bindValue(':name', $this->name);
+            $statement = $conn->prepare("UPDATE users SET name = :name, description_vzw = :description WHERE id = :id");
+            $statement->bindValue(':name', $this->firstname);
             $statement->bindValue(':description', $this->description);
             $statement->bindValue(':id', $this->id);
             return $statement->execute();
