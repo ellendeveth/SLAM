@@ -12,7 +12,7 @@ if (!empty($_POST['register'])) {
         $user->setStudent(0);
         $user->registerOrganisation();
 
-        header('Location: ../index.php');
+        header('Location: ../login.php');
     } catch (\Throwable $e) {
         $error = $e->getMessage();
     }
