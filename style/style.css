@@ -997,7 +997,7 @@ p {
 }
 
 .form__input__large {
-    max-width: 800px;
+    width: 100%;
 }
 
 .user__img {
