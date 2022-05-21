@@ -146,6 +146,17 @@
             return $statement->execute();
         }
 
+        public static function isMemberOfProject($post_id, $user_id)
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare('SELECT * FROM team WHERE post_id = :post_id AND user_id = :user_id');
+            $statement->bindValue(':post_id', $post_id);
+            $statement->bindValue(':user_id', $user_id);
+            $statement->execute();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
+
         public static function getOrganisationOfProject($id)
         {
             $conn = Db::getInstance();

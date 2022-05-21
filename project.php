@@ -6,6 +6,7 @@
     $project = Project::getProjectById($projectId);
 
     $members = Project::getMembersByProject($projectId);
+    $isMember = Project::isMemberOfProject($projectId, $_SESSION['id']);
 
     $competences = Competence::getCompetences($projectId);
 
@@ -65,6 +66,7 @@
             </div>
 
             <div>
+                <?php if (empty($isMember)): ?>
                 <form action="" method="post" class="btn__container">
                     <div>
                         <input class="btn btn__variant" type="submit" name="login" value="Organisatie contacteren">
@@ -73,6 +75,16 @@
                         <input class="btn" type="submit" name="addMember" value="Aanmelden">
                     </div>
                 </form>
+                <?php else: ?>
+                    <form action="" method="post" class="btn__container">
+                    <div>
+                        <input class="btn btn__variant" type="submit" name="login" value="Organisatie contacteren">
+                    </div>
+                    <div>
+                        <input class="btn btn--subscribed" disabled="disabled" type="submit" value="Aangemeld">
+                    </div>
+                </form>
+                <?php endif; ?>
             </div>
 
 

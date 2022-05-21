@@ -697,6 +697,11 @@ p {
     margin-right: 16px;
 }
 
+.btn--subscribed {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 /* 
     confirmation page
 */
