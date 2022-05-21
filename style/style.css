@@ -803,6 +803,13 @@ p {
     margin-right: -24px;
 }
 
+.projects__list {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
 .project__summary span {
     font-weight: 700;
 }
@@ -855,7 +862,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 30%;
+    width: 50%;
     margin-bottom: 24px;
 }
 

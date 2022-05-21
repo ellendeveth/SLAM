@@ -6,7 +6,8 @@
         $myprojects = Project::getMyProjects($_SESSION['id']);
         $tasks = Task::getTasks($myprojects[0]['id']);
         $organisation = Project::getOrganisationOfProject($myprojects[0]['id']);
-        var_dump($organisation);
+        $members = Project::getMembersByProject($myprojects[0]['id']);
+        var_dump($tasks);
     } catch (\Throwable $e) {
         $error = $e->getMessage();
     }
@@ -85,15 +86,27 @@
                 <div class="project__card">
                     <div class="project__summary">
                         <div class="project__box__profile">
-                            <img class="projects__img" src="assets/img/profile-pic.png" alt="profile-pic">
+                            <?php if (empty($organisation['profile_pic'])): ?>
+                                <img class="projects__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
+                            <?php else: ?>
+                                <img class="projects__img" src="profile_pictures/<?php echo $organisation['profile_pic'] ?>" alt="profile-pic">
+                            <?php endif; ?>
                             <h3><?php echo $organisation['name'] ?></h3>
                         </div>
 
                         <p><span>Project:</span> <?php echo $myprojects[0]["title"] ?></p>
-                        <img class="projects__img overlapping__img" src="assets/img/profile-pic.png" alt="profile-pic">
-                        <img class="projects__img overlapping__img" src="assets/img/profile-pic.png" alt="profile-pic">
-                        <img class="projects__img overlapping__img" src="assets/img/profile-pic.png" alt="profile-pic">
-                        <img class="projects__img overlapping__img" src="assets/img/profile-pic.png" alt="profile-pic">
+                        <ul class="projects__list">
+                            <?php foreach ($members as $member): ?>
+                            <li>
+                                <?php if (empty($member['profile_pic'])): ?>
+                                    <img class="projects__img overlapping__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
+                                <?php else: ?>
+                                    <img class="projects__img overlapping__img" src="profile_pictures/<?php echo $member['profile_pic'] ?>" alt="profile-pic">
+                                <?php endif; ?>
+                            </li>
+                            <?php endforeach; ?>
+                        </ul>
+                        
                     </div>
 
                     <div class="project__info">
@@ -155,7 +168,14 @@
                             <p><?php echo $task["task"] ?></p>
                             <?php endforeach; ?>
                         </div>
-                        <img class="projects__img overlapping__img" src="assets/img/profile-pic.png" alt="profile-pic">
+                        
+                        <?php if (empty($task['profile_pic'])): ?>
+                            <img class="projects__img overlapping__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
+                            <p><?php echo $task['name'] ?></p>
+                        <?php else: ?>
+                            <img class="projects__img overlapping__img" src="profile_pictures/<?php echo $task['profile_pic'] ?>" alt="profile-pic">
+                            <p><?php echo $task['name'] ?></p>
+                        <?php endif; ?>
                     </div>
                     <?php endif; ?>
                 </div>

@@ -51,7 +51,11 @@
             </a>
 
             <div class="project__box__profile">
-                <img class="projects__img" src="assets/img/profile-pic.png" alt="profile-pic">
+                <?php if (empty($project['profile_pic'])): ?>
+                    <img class="projects__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
+                <?php else: ?>
+                    <img class="projects__img" src="profile_pictures/<?php echo $project['profile_pic'] ?>" alt="profile-pic">
+                <?php endif; ?>
                 <h2><?php echo $project["name"] ?></h2>
             </div>
 
@@ -109,7 +113,12 @@
                     <?php else: ?>
                         <?php foreach ($members as $key => $member): ?>
                         <li>
-                            <img class="members__img" src="assets/img/profile-pic.png" alt="profile-pic">
+                            <?php if (empty($member['profile_pic'])): ?>
+                                <img class="projects__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
+                            <?php else: ?>
+                                <img class="members__img" src="profile_pictures/<?php echo $member['profile_pic'] ?>" alt="profile-pic">
+                            <?php endif; ?>
+                            
                             <p><?php echo $member["name"] . " " . $member["last_name"] ?></p>
                         </li>
                     <?php endforeach; ?>

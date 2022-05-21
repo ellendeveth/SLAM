@@ -79,7 +79,7 @@
         public static function getTasks($id)
         {
             $conn = Db::getInstance();
-            $statement = $conn->prepare('SELECT * FROM tasks WHERE post_id = :post_id');
+            $statement = $conn->prepare('SELECT * FROM tasks INNER JOIN users on users.id = tasks.user_id WHERE post_id = :post_id');
             $statement->bindValue(':post_id', $id);
             $statement->execute();
             return $statement->fetchAll();

@@ -91,7 +91,11 @@
                     <li>
                         <div class="project__box">
                             <div class="project__box__profile">
-                                <img class="projects__img" src="assets/img/profile-pic.png" alt="profile-pic">
+                                <?php if (empty($project['profile_pic'])): ?>
+                                    <img class="projects__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
+                                <?php else: ?>
+                                    <img class="projects__img" src="profile_pictures/<?php echo $project['profile_pic'] ?>" alt="profile-pic">
+                                <?php endif; ?>
                                 <h2><?php echo $project['name']; ?></h2>
                             </div>
 
