@@ -860,9 +860,9 @@ p {
 
 .task__container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 50%;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 70%;
     margin-bottom: 24px;
 }
 
@@ -875,10 +875,18 @@ p {
 .checkbox__task {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 1em 0;
 }
 
 .checkbox__task p {
     margin-left: 12px;
+}
+
+.checkbox__task__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .container--modal {
