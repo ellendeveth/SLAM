@@ -7,7 +7,7 @@
         $tasks = Task::getTasks($myprojects[0]['id']);
         $organisation = Project::getOrganisationOfProject($myprojects[0]['id']);
         $members = Project::getMembersByProject($myprojects[0]['id']);
-        var_dump($tasks);
+        //var_dump($tasks);
     } catch (\Throwable $e) {
         $error = $e->getMessage();
     }
@@ -121,15 +121,15 @@
                 <div class="project__card project__card__finished">
                     <div class="project__summary">
                         <div class="project__box__profile">
-                            <img class="projects__img" src="assets/img/profile-pic.png" alt="profile-pic">
+                            <img class="projects__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
                             <h3>Naam VZW</h3>
                         </div>
 
                         <p><span>Project:</span>  <?php echo $myprojects[0]["title"] ?></p>
-                        <img class="projects__img overlapping__img" src="assets/img/profile-pic.png" alt="profile-pic">
-                        <img class="projects__img overlapping__img" src="assets/img/profile-pic.png" alt="profile-pic">
-                        <img class="projects__img overlapping__img" src="assets/img/profile-pic.png" alt="profile-pic">
-                        <img class="projects__img overlapping__img" src="assets/img/profile-pic.png" alt="profile-pic">
+                        <img class="projects__img overlapping__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
+                        <img class="projects__img overlapping__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
+                        <img class="projects__img overlapping__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
+                        <img class="projects__img overlapping__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
                     </div>
 
                     <div class="project__info">
@@ -162,20 +162,24 @@
                             <h3>Je hebt nog geen taken</h3>
                     <?php else: ?>
                     <div class="task__container">
-                        <div class="checkbox__task">
-                            <?php foreach ($tasks as $task): ?>
-                            <input class="filter__checkbox--active" type="checkbox" name="language" value="nl">
-                            <p><?php echo $task["task"] ?></p>
-                            <?php endforeach; ?>
-                        </div>
+                        <?php foreach ($tasks as $task): ?>
+                            <div class="checkbox__task">
+                                <div class="checkbox__task__info">
+                                    <input class="filter__checkbox--active" type="checkbox" name="language" value="nl">
+                                    <p><?php echo $task["task"] ?></p>
+                                </div>
+                                
+                                <?php if (empty($task['profile_pic'])): ?>
+                                    <img class="projects__img overlapping__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
+                                    <p><?php echo $task['name'] ?></p>
+                                <?php else: ?>
+                                    <img class="projects__img overlapping__img" src="profile_pictures/<?php echo $task['profile_pic'] ?>" alt="profile-pic">
+                                    <p><?php echo $task['name'] ?></p>
+                                <?php endif; ?>
+                            </div>
+                        <?php endforeach; ?>
                         
-                        <?php if (empty($task['profile_pic'])): ?>
-                            <img class="projects__img overlapping__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
-                            <p><?php echo $task['name'] ?></p>
-                        <?php else: ?>
-                            <img class="projects__img overlapping__img" src="profile_pictures/<?php echo $task['profile_pic'] ?>" alt="profile-pic">
-                            <p><?php echo $task['name'] ?></p>
-                        <?php endif; ?>
+                        
                     </div>
                     <?php endif; ?>
                 </div>
