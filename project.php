@@ -7,6 +7,8 @@
 
     $members = Project::getMembersByProject($projectId);
 
+    $competences = Competence::getCompetences($projectId);
+
     if (empty($members)) {
         $emptyState = "Er zijn nog geen studenten toegevoegd aan dit project.";
     }
@@ -81,12 +83,9 @@
             <div class="learning__goals">
                 <h3>Leerdoelen</h3>
                 <ul>
-                    
-                    <li>Kinderbegeleiding</li>
-                    <li>Onderwijs</li>
-                    <li>Klasplanning</li>
-                    <li>Psychologische bijstand</li>
-                    <li>Organiseren groepsactiviteiten</li>
+                    <?php foreach ($competences as $competence): ?>
+                        <li><?php echo $competence['name'] ?></li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
 

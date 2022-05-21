@@ -8,7 +8,13 @@
             $project->setTitle($_POST['title']);
             $project->setDescription($_POST['description']);
             $project->setUser_id($_SESSION['id']);
-            $project->uploadProject();
+            $projectId = $project->uploadProject();
+
+            $competences = new Competence();
+            $competences->setPostId($projectId);
+            $competences->setCompetence($_POST['competences']);
+            $competences->uploadCompetences();
+
             
             header('Location: index.php');
         } catch (\Throwable $e) {
@@ -30,7 +36,7 @@
         <div class="add-project">
             <input class="project__input" type="text" placeholder="Titel" name="title">
             <input class="project__input desc" type="text" placeholder="Beschrijving" name="description">
-            <input class="project__input" type="text" placeholder="Competenties">
+            <input class="project__input" type="text" placeholder="Plaats een spatie tussen de competenties" name="competences">
             <input class="project__btn" type="submit" value="Uploaden" name="uploadProject">
         </div>
     </form>

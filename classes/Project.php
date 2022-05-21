@@ -93,7 +93,8 @@
             $statement->bindValue(':title', $this->title);
             $statement->bindValue(':description', $this->description);
             $statement->bindValue(':user_id', $this->user_id);
-            return $statement->execute();
+            $statement->execute();
+            return $conn->lastInsertId();
         }
 
         public static function getAllProjects()

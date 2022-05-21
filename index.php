@@ -9,6 +9,7 @@
     //get posts
     $projects = Project::getAllProjects();
     //var_dump($projects);
+
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -84,7 +85,9 @@
             <div class="projects__box">
                 <ul class="project__box__li">
                     <?php foreach ($projects as $project): ?>
-                        <?php var_dump($project[0]); ?>
+                        <?php
+                            $competences = Competence::getCompetencesForDashboard($project[0]);
+                        ?>
                     <li>
                         <div class="project__box">
                             <div class="project__box__profile">
@@ -100,9 +103,11 @@
                                     </a>
 
                                     <ul class="project__tags">
-                                        <li class="tags__tag">tag</li>
-                                        <li class="tags__tag">tag</li>
-                                        <li class="tags__tag">tag</li>
+                                        <?php foreach ($competences as $competence): ?>
+                                            <li class="tags__tag">
+                                                <?php echo $competence['name']; ?>
+                                            </li>
+                                        <?php endforeach; ?>
                                     </ul>
                                     <p class="project__text"><?php echo $project['description']; ?></p>
                                 </div>
