@@ -22,42 +22,42 @@
 
             <div class="container__blocks">
                 <div class="block">
-                    <a class="block__link" href="">
+                    <a class="block__link" href="competences-bus.php">
                         <span class="block__text">Business</span>
                         <img class="block__img" src="../assets/img/arrow.png" alt="arrow">
                     </a>
                 </div>
 
                 <div class="block">
-                    <a class="block__link" href="">
+                    <a class="block__link" href="competences-des.php">
                         <span class="block__text">Design</span>
                         <img class="block__img" src="../assets/img/arrow.png" alt="arrow">
                     </a>
                 </div>
 
                 <div class="block">
-                    <a class="block__link" href="">
+                    <a class="block__link" href="competences-event.php">
                         <span class="block__text">Event en organisatie</span>
                         <img class="block__img" src="../assets/img/arrow.png" alt="arrow">
                     </a>
                 </div>
 
                 <div class="block">
-                    <a class="block__link" href="">
+                    <a class="block__link" href="competences-dev.php">
                         <span class="block__text">IT en development</span>
                         <img class="block__img" src="../assets/img/arrow.png" alt="arrow">
                     </a>
                 </div>
 
                 <div class="block">
-                    <a class="block__link" href="">
+                    <a class="block__link" href="competences-com.php">
                         <span class="block__text">Marketing en communicatie</span>
                         <img class="block__img" src="../assets/img/arrow.png" alt="arrow">
                     </a>
                 </div>
 
                 <div class="block">
-                    <a class="block__link" href="">
+                    <a class="block__link" href="competences-edu.php">
                         <span class="block__text">Onderwijs</span>
                         <img class="block__img" src="../assets/img/arrow.png" alt="arrow">
                     </a>

@@ -329,6 +329,17 @@ p {
     justify-content: center;
 }
 
+.btn-competences {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter__btn {
+    display: flex;
+    justify-content: center;
+}
 /*
     competentions styles
 */
@@ -386,6 +397,10 @@ p {
 
 .filter:active {
     background-color: var(--accent) !important;
+}
+
+.filters--business {
+    width: 500px ;
 }
 
 

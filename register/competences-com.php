@@ -15,45 +15,37 @@
         <div class="container__comp__filters">
             <div class="main">
                 <h1 class="form__title">Competenties</h1>
-                <span class="subtitle-big">Selecteer jouw skills.</span>
+                <span class="subtitle-big">Selecteer jouw skills binnen marketing en communicatie</span>
             </div>
 
             <div class="container__filters">
                 <div class="filter">
-                    <button>Mobile development</button>
+                    <button>Public relations</button>
                 </div>
                 <div class="filter">
-                    <button>Backend development</button>
+                    <button>Branding & advertising</button>
                 </div>
                 <div class="filter">
-                    <button>Databanken</button>
+                    <button>Event & experience</button>
                 </div>
                 <div class="filter">
-                    <button>Frontend development</button>
+                    <button>Digital media management</button>
                 </div>
                 <div class="filter">
-                    <button>A.I.</button>
+                    <button>Woordvoerder</button>
                 </div>
                 <div class="filter">
-                    <button>Full-stack development</button>
+                    <button>Projectmanagement</button>
                 </div>
-                <div class="filter">
-                    <button>Netwerken</button>
-                </div>
-                <div class="filter">
-                    <button>IoT</button>
-                </div>
-                <div class="filter">
-                    <button>Data security</button>
-                </div>
-                <div class="filter">
-                    <button>Project management</button>
-                </div>
+                
 
+                <div class="filter__btn">
+                <a href="../index.php" class="btn btn-competences" name="competences" >Opslaan</a>
+            </div>
             </div>
         </div>
     </div>
-
+<script src="../js/competence.js"></script>
 </body>
 
 </html>
