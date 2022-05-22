@@ -115,7 +115,7 @@
                 <div class="user__settings">
                     <div class="user__img">
                         <?php if (empty($userDataFromId['profile_pic'])): ?>
-                            <img src="profile_pictures/profile-pic.png" alt="profile-pic">
+                            <img class="projects__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
                         <?php else: ?>
                             <img src="profile_pictures/<?php echo $userDataFromId['profile_pic'] ?>" alt="" class="projects__img">
                         <?php endif; ?>
