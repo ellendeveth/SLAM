@@ -32,7 +32,11 @@ if (!empty($_POST['register'])) {
 
 <body class="body--startpage">
     <h1 class="header-one header-one--reg">Welkom bij SLAM</h1>
-
+        <?php if (isset($error)) : ?>
+            <div class="form__container__error">
+                <p class="form__error error"><?php echo $error; ?></p>
+            </div>
+        <?php endif; ?>
     <div class="container--form">
         <form action="" method="post" class="form">
 

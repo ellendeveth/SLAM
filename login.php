@@ -32,15 +32,15 @@ if (!empty($_POST['login'])) {
 </head>
 
 <body class="body--startpage">
-    <?php if (isset($error)) : ?>
-        <div class="form__container">
-            <p class="form__error error"><?php echo $error; ?></p>
-        </div>
-    <?php endif; ?>
+    
     <div class="form">
         <form action="" method="post">
             <h1 class="form__title">Welkom terug!</h1>
-
+                <?php if (isset($error)) : ?>
+                    <div class="form__container">
+                        <p class="form__error error"><?php echo $error; ?></p>
+                    </div>
+                <?php endif; ?>
             <div class="form__container">
                 <label class="form__text" for="email">Email</label>
                 <input class="form__input" type="text" name="email">

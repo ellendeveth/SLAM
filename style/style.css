@@ -157,7 +157,10 @@ p {
 .success {
     color: green;
 }
-
+.form__container__error {
+    display: flex;
+    justify-content: center;
+}
 /* 
     form/login styles
 */
