@@ -33,6 +33,19 @@
             $user->updateOrganisationProfile();
         }
     }
+
+    if (!empty($_POST['deleteAccount'])) {
+        $user = new User();
+        $id = $_SESSION['id'];
+        $user->setId($id);
+        $user->deleteAccount();
+        Project::deleteProject($id);
+        Project::deleteTeam($id);
+        Task::deleteTasks($id);
+        Competence::deleteCompetences($id);
+        
+        header("Location: logout.php");
+    }
     // if (!empty($_POST['submitProfilePicture'])) {
     //     try {
     //         $user->canUploadPicture($sessionId);
@@ -60,17 +73,31 @@
     <?php require_once('header.php'); ?>
 
     <div class="settings__container">
+         <!-- are you sure modal -->
+         <div class="container--modal" style="display: none;">
+            
+            <form action="" method="post" class="modal__content">
+                <div id="closeModal" class="modal__close">+</div>
+                <h2 class="modal__text">Ben je zeker dat je je account wil verwijderen?</h2>
+                <div class="modal__btn">
+                    <input class="btn--no" type="submit" value="Nee" name="task">
+                    <input class="btn btn--yes" type="submit" value="Ja" name="deleteAccount">   
+                </div>
+            </form>
+       
+        </div>
+        <!--- end are you sure modal -->
         <div class="sidebar__settings">
             <h1 class="header-one">Instellingen</h1>
 
             <div class="settings__menu">
                 <ul>
-                    <li><a href="#">Profiel <img src="assets/img/arrow.png" alt="arrow"></a></li>
+                    <li><a href="settings.php">Profiel <img src="assets/img/arrow.png" alt="arrow"></a></li>
                     <li><a href="#">Skills wijzigen <img src="assets/img/arrow.png" alt="arrow"></a></li>
                     <li><a href="#">Meldingen beheren <img src="assets/img/arrow.png" alt="arrow"></a></li>
                     <li><a href="#">Privacy policy <img src="assets/img/arrow.png" alt="arrow"></a></li>
                     <li><a href="change-password.php">Wachtwoord wijzigen <img src="assets/img/arrow.png" alt="arrow"></a></li>
-                    <li><a href="logout.php">Account verwijderen <img src="assets/img/arrow.png" alt="arrow"></a></li>
+                    <li><a id="deleteAccount">Account verwijderen <img src="assets/img/arrow.png" alt="arrow"></a></li>
                 </ul>
 
                 <a href="logout.php" class="subtitle-big logout">Uitloggen</a>
@@ -157,7 +184,7 @@
             </form>
         </div>
     </div>
-<script src="js/profilepicture.js"></script>
+<script src="js/modal-delete.js"></script>
 </body>
 
 </html>

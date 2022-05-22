@@ -382,6 +382,14 @@
             return $statement->execute();
         }
 
+        public function deleteAccount()
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("DELETE FROM users WHERE id = :id");
+            $statement->bindValue(':id', $this->id);
+            return $statement->execute();
+        }
+
         public function updatePictureInDatabase($profilePicture, $id)
         {
             $conn = Db::getInstance();

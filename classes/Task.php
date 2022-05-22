@@ -84,4 +84,12 @@
             $statement->execute();
             return $statement->fetchAll();
         }
+
+        public static function deleteTasks($id)
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare('DELETE FROM tasks WHERE user_id = :id');
+            $statement->bindValue(':id', $id);
+            return $statement->execute();
+        }
     }

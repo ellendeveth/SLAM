@@ -165,4 +165,20 @@
             $statement->execute();
             return $statement->fetch(PDO::FETCH_ASSOC);
         }
+
+        public static function deleteProject($id)
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare('DELETE FROM posts WHERE user_id = :id');
+            $statement->bindValue(':id', $id);
+            return $statement->execute();
+        }
+
+        public static function deleteTeam($id)
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare('DELETE FROM team WHERE user_id = :id');
+            $statement->bindValue(':id', $id);
+            return $statement->execute();
+        }
     }

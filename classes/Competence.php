@@ -83,4 +83,13 @@
             $result = $statement->fetchAll();
             return $result;
         }
+
+        public static function deleteCompetences($id)
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("DELETE FROM competences WHERE user_id=:id");
+            $statement->bindValue(":id", $id);
+            $result = $statement->execute();
+            return $result;
+        }
     }
