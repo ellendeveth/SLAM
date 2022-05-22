@@ -67,7 +67,9 @@
         public function setEmail($email)
         {
             $this->email = $email;
-
+            if ($this->email == "") {
+                throw new Exception("Email mag niet leeg zijn.");
+            }
             return $this;
         }
 
@@ -87,7 +89,7 @@
         public function setPassword($password)
         {
             if (strlen($password) < 6) {
-                throw new Exception("Password must be at least 6 characters long");
+                throw new Exception("Wachtwoord moet minstens 6 karakters lang zijn.");
             }
             $this->password = $password;
 
@@ -241,8 +243,16 @@
             $password = password_hash($this->password, PASSWORD_BCRYPT, $options);
             //check password and confirm password
             if ($this->password != $this->confirm) {
-                throw new Exception("Passwords do not match");
+                throw new Exception("Wachtwoorden komen niet overeen.");
             }
+            $checkemail = "student.thomasmore.be";
+            if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+                throw new Exception("Ongeldige email");
+            }
+            if (strpos($this->email, $checkemail) === false) {
+                throw new Exception("Email moet een studentenmail zijn.");
+            }
+
             $conn = Db::getInstance();
             $statement = $conn->prepare("INSERT INTO users (name, last_name, email, password, school, education, is_student) VALUES (:name, :lastname, :email, :password, :school, :education, :student)");
             $statement->bindValue(':name', $this->firstname);
