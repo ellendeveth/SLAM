@@ -69,11 +69,11 @@
                     <li><a href="#">Skills wijzigen <img src="assets/img/arrow.png" alt="arrow"></a></li>
                     <li><a href="#">Meldingen beheren <img src="assets/img/arrow.png" alt="arrow"></a></li>
                     <li><a href="#">Privacy policy <img src="assets/img/arrow.png" alt="arrow"></a></li>
-                    <li><a href="#">Wachtwoord wijzigen <img src="assets/img/arrow.png" alt="arrow"></a></li>
+                    <li><a href="change-password.php">Wachtwoord wijzigen <img src="assets/img/arrow.png" alt="arrow"></a></li>
                     <li><a href="logout.php">Account verwijderen <img src="assets/img/arrow.png" alt="arrow"></a></li>
                 </ul>
 
-                <a href="login.php" class="subtitle-big logout">Uitloggen</a>
+                <a href="logout.php" class="subtitle-big logout">Uitloggen</a>
             </div>
         </div>
 

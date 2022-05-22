@@ -350,6 +350,38 @@
             return $statement->execute();
         }
 
+        public static function checkPassword($id, $password)
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("select * from users where id = :id");
+            $statement->bindValue(":id", $id);
+            $statement->execute();
+            $user = $statement->fetch(PDO::FETCH_ASSOC);
+            if ($user) {
+                $hash = $user['password'];
+                if (password_verify($password, $hash)) {
+                    return true;
+                } else {
+                    throw new Exception('Current password is wrong. Please try again.');
+                }
+            } else {
+                throw new Exception("User does not exist.");
+            }
+        }
+
+        public function updatePassword()
+        {
+            $options = [
+                'cost' => 12,
+            ];
+            $password = password_hash($this->password, PASSWORD_BCRYPT, $options);
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("UPDATE users SET password = :password WHERE id = :id");
+            $statement->bindValue(':password', $password);
+            $statement->bindValue(':id', $this->id);
+            return $statement->execute();
+        }
+
         public function updatePictureInDatabase($profilePicture, $id)
         {
             $conn = Db::getInstance();
