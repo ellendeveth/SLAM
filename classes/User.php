@@ -272,7 +272,7 @@
             $password = password_hash($this->password, PASSWORD_BCRYPT, $options);
             //check password and confirm password
             if ($this->password != $this->confirm) {
-                throw new Exception("Passwords do not match");
+                throw new Exception("Wachtwoorden komen niet overeen.");
             }
             $conn = Db::getInstance();
             $statement = $conn->prepare("INSERT INTO users (name, description_vzw, email, password, is_student) VALUES (:name, :description, :email, :password, :student)");
@@ -297,10 +297,10 @@
                 if (password_verify($this->password, $hash)) {
                     return true;
                 } else {
-                    throw new Exception("Incorrect password. Try again.");
+                    throw new Exception("Foute wachtwoord. Probeer opnieuw.");
                 }
             } else {
-                throw new Exception("User does not exist.");
+                throw new Exception("Deze gebruiker bestaat niet.");
             }
         }
 
@@ -372,10 +372,10 @@
                 if (password_verify($password, $hash)) {
                     return true;
                 } else {
-                    throw new Exception('Current password is wrong. Please try again.');
+                    throw new Exception('Huidige wachtwoord is fout. Probeer opnieuw.');
                 }
             } else {
-                throw new Exception("User does not exist.");
+                throw new Exception("Deze gebruiker bestaat niet.");
             }
         }
 
