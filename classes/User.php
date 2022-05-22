@@ -274,6 +274,9 @@
             if ($this->password != $this->confirm) {
                 throw new Exception("Wachtwoorden komen niet overeen.");
             }
+            if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+                throw new Exception("Ongeldige email");
+            }
             $conn = Db::getInstance();
             $statement = $conn->prepare("INSERT INTO users (name, description_vzw, email, password, is_student) VALUES (:name, :description, :email, :password, :student)");
             $statement->bindValue(':name', $this->firstname);
