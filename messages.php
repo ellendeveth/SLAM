@@ -28,21 +28,21 @@
             <div class="messages__chat__groups">
                 <h2>Groepen</h2>
                 <div class="chat__groups">
-                    <img class="projects__img" src="assets/img/profile-pic.png" alt="profile-pic">
+                    <img class="projects__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
                     <div class="chat__groups__text">
                         <h3 class="subtitle-big">Groep 1</h3>
                         <p>message text</p>
                     </div>
                 </div>
                 <div class="chat__groups">
-                    <img class="projects__img" src="assets/img/profile-pic.png" alt="profile-pic">
+                    <img class="projects__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
                     <div class="chat__groups__text">
                         <h3 class="subtitle-big">Groep 2</h3>
                         <p>message text</p>
                     </div>
                 </div>
                 <div class="chat__groups">
-                    <img class="projects__img" src="assets/img/profile-pic.png" alt="profile-pic">
+                    <img class="projects__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
                     <div class="chat__groups__text">
                         <h3 class="subtitle-big">Groep 3</h3>
                         <p>message text</p>
