@@ -34,7 +34,7 @@ if (!empty($_POST['login'])) {
 <body class="body--startpage">
     <?php if (isset($error)) : ?>
         <div class="form__container">
-            <p class="form__error"><?php echo $error; ?></p>
+            <p class="form__error error"><?php echo $error; ?></p>
         </div>
     <?php endif; ?>
     <div class="form">
