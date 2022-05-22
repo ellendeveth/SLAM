@@ -14,6 +14,11 @@ if (!empty($_POST['register'])) {
         $user->setStudent(1);
         $user->registerStudent();
 
+        $id = User::getIdByEmail($user->getEmail());
+        $user->setId($id);
+        session_start();
+        $_SESSION['id'] = $id;
+
         header('Location: competences.php');
     } catch (\Throwable $e) {
         $error = $e->getMessage();

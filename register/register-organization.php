@@ -12,7 +12,12 @@ if (!empty($_POST['register'])) {
         $user->setStudent(0);
         $user->registerOrganisation();
 
-        header('Location: ../login.php');
+        $id = User::getIdByEmail($user->getEmail());
+        $user->setId($id);
+        session_start();
+        $_SESSION['id'] = $id;
+
+        header('Location: ../index.php');
     } catch (\Throwable $e) {
         $error = $e->getMessage();
     }
