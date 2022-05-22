@@ -150,6 +150,14 @@ p {
     /* overflow: hidden; */
 }
 
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
 /* 
     form/login styles
 */
@@ -665,6 +673,10 @@ p {
     margin-right: 2em;
 }
 
+.btn__variant:hover {
+   border: none;
+}
+
 .learning__goals {
     margin-bottom: 32px;
     box-shadow: 0px 16px 40px rgba(75, 75, 75, 0.15);
@@ -957,8 +969,9 @@ p {
 }
 
 .settings__menu ul {
-    padding: 56px 0;
+    padding: 46px 0;
     width: 100%;
+    margin: 0;
 }
 
 .settings__menu ul li {
@@ -972,7 +985,7 @@ p {
     text-decoration: none;
     color: var(--offblack);
     width: 100%;
-    font-size: 21px;
+    font-size: 18px;
     transition: all .2s;
 }
 
@@ -1034,6 +1047,10 @@ p {
     background-color: #430BC8;
     color: #fff;
     padding: 6px;
+}
+
+.form__container--password {
+    padding-top: 4em;
 }
 
 
