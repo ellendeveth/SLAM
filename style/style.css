@@ -678,6 +678,77 @@ p {
     display: flex;
 }
 
+.messages__chat__active {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 1em;
+}
+
+.messages__chat__active__sent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.7em;
+    margin-top: 1em;
+    position: absolute;
+    right: 5%;
+}
+
+.messages__time {
+    text-align: center;
+    font-size: 12px;
+    color: var(--gray);
+}
+
+.message__receive {
+    background-color: #F1F1F1;
+    padding: 0.5em 1em;
+    border-radius: 6px;
+}
+
+.message__sent {
+    background-color: var(--secondary);
+    padding: 0.5em 1em;
+    border-radius: 6px;
+}
+
+.messages__title {
+    display: flex;
+    flex-direction: row;
+    border-bottom: solid 1px var(--gray);
+}
+
+.messages__chat__send {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    border-top: solid 1px var(--gray);
+    width: 75%;
+    padding-top: 0.7em;
+}
+
+.send__input {
+    width: 100%;
+    padding: 0.5em;
+    border: none;
+    color: #667085;
+    padding-bottom: 1em;
+}
+
+.send__input:focus {
+    outline: none
+}
+
+.send__img {
+    width: 25px;
+    height: 25px;
+    margin-right: 0.5em;
+}
+
 /* 
     individual project
 */

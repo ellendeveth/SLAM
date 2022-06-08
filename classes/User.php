@@ -458,4 +458,13 @@
                 }
             }
         }
+
+        public static function getTeam($id){
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("SELECT * FROM team INNER JOIN posts ON posts.id = team.post_id INNER JOIN users ON posts.user_id = users.id WHERE team.user_id = :user_id");
+            $statement->bindValue(":user_id", $id);
+            $statement->execute();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
     }
