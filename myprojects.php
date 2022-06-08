@@ -12,6 +12,8 @@
         $figma = $myprojects[0]['doc_figma'];
         $trello = $myprojects[0]['doc_trello'];
         $word = $myprojects[0]['doc_word'];
+
+        $isStudent = User::getStudentById($_SESSION['id']);
         
     } catch (\Throwable $e) {
         $error = $e->getMessage();
@@ -100,17 +102,37 @@
             <form action="" method="post" class="modal__content__doc">
                 <div id="closeModalDoc" class="modal__close">+</div>
                 <h2>Document toevoegen</h2>
-                    <label for="github">GitHub</label>
-                    <input class="form__input modal__task" type="text" placeholder="Link to GitHub" name="github" id="github">
+                    <?php if(!empty($github)): ?>
+                        <label for="github">GitHub</label>
+                        <input class="form__input modal__task" type="text" placeholder="Link to GitHub" name="github" id="github" value="<?php echo $github ?>">
+                    <?php else: ?>
+                        <label for="github">GitHub</label>
+                        <input class="form__input modal__task" type="text" placeholder="Link to GitHub" name="github" id="github">
+                    <?php endif; ?>
+                    
+                    <?php if(!empty($figma)): ?>
+                        <label for="figma">Figma</label>
+                        <input class="form__input modal__task" type="text" placeholder="Link to Figma" name="figma" id="figma" value="<?php echo $figma ?>">
+                    <?php else: ?>
+                        <label for="figma">Figma</label>
+                        <input class="form__input modal__task" type="text" placeholder="Link to Figma" name="figma" id="figma">
+                    <?php endif; ?>
 
-                    <label for="figma">Figma</label>
-                    <input class="form__input modal__task" type="text" placeholder="Link to Figma" name="figma" id="figma">
+                    <?php if(!empty($trello)): ?>
+                        <label for="trello">Trello</label>
+                        <input class="form__input modal__task" type="text" placeholder="Link to Trello" name="trello" id="trello" value="<?php echo $trello ?>">
+                    <?php else: ?>
+                        <label for="trello">Trello</label>
+                        <input class="form__input modal__task" type="text" placeholder="Link to Trello" name="trello" id="trello">
+                    <?php endif; ?>
 
-                    <label for="trello">Trello</label>
-                    <input class="form__input modal__task" type="text" placeholder="Link to Trello" name="trello" id="trello">
-
-                    <label for="word">Word</label>
-                    <input class="form__input modal__task" type="text" placeholder="Link to Word" name="word" id="word">
+                    <?php if(!empty($word)): ?>
+                        <label for="word">Word</label>
+                        <input class="form__input modal__task" type="text" placeholder="Link to Word" name="word" id="word" value="<?php echo $word ?>">
+                    <?php else: ?>
+                        <label for="word">Word</label>
+                        <input class="form__input modal__task" type="text" placeholder="Link to Word" name="word" id="word">
+                    <?php endif; ?>
 
                 <input class="btn" type="submit" value="Document toevoegen" name="addDocument">   
             </form>
@@ -235,6 +257,7 @@
                     <h2>Taken</h2>
                     <div id="addTask" class="btn--extra">+ Taak toevoegen</div>
                 </div>
+                
                 <div class="task__list">
                     <?php if (empty($tasks)): ?>
                             <h3>Je hebt nog geen taken</h3>
@@ -262,6 +285,9 @@
                     <?php endif; ?>
                 </div>
             </div>
+            <?php if (!$isStudent): ?>
+                <input type="submit" value="Eindig project" class="btn btn--end">
+            <?php endif; ?>
 
         </div>
     </div>

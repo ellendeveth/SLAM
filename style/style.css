@@ -280,6 +280,14 @@ p {
     color: var(--offblack);
 }
 
+.btn--end {
+    width: 120px;
+    position: relative;
+    float: right;
+    margin-bottom: 1em;
+    font-size: 14px;
+}
+
 /*
     forgot password
 */
