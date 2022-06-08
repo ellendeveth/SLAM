@@ -266,7 +266,7 @@
         </div>
     </div>
     <?php endif; ?>
-<script src="js/modal.js"></script>
+<script src="js/modal-task.js"></script>
 <script src="js/modal-document.js"></script>
 </body>
 
