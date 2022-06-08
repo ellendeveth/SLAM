@@ -34,6 +34,7 @@
 <body>
     <form action="" method="post">
         <div class="add-project">
+            <h1 class="header-one">Voeg een project toe</h1>
             <input class="project__input" type="text" placeholder="Titel" name="title">
             <input class="project__input desc" type="text" placeholder="Beschrijving" name="description">
             <input class="project__input" type="text" placeholder="Plaats een spatie tussen de competenties" name="competences">
