@@ -7,7 +7,12 @@
         $tasks = Task::getTasks($myprojects[0]['id']);
         $organisation = Project::getOrganisationOfProject($myprojects[0]['id']);
         $members = Project::getMembersByProject($myprojects[0]['id']);
-        //var_dump($tasks);
+        
+        $github = $myprojects[0]['doc_github'];
+        $figma = $myprojects[0]['doc_figma'];
+        $trello = $myprojects[0]['doc_trello'];
+        $word = $myprojects[0]['doc_word'];
+        
     } catch (\Throwable $e) {
         $error = $e->getMessage();
     }
@@ -18,6 +23,16 @@
         $task->setPost_id($myprojects[0]["id"]);
         $task->setUser_id($_SESSION["id"]);
         $task->addTask();
+    }
+
+    if(!empty($_POST["addDocument"])) {
+        $doc = new Document();
+        $doc->setProjectId($myprojects[0]["id"]);
+        $doc->setGithub($_POST['github']);
+        $doc->setFigma($_POST['figma']);
+        $doc->setTrello($_POST['trello']);
+        $doc->setWord($_POST['word']);
+        $doc->addDocument();
     }
    
 ?><!DOCTYPE html>
@@ -79,6 +94,29 @@
            
         </div>
     <!--- end task modal -->
+     <!-- add doc modal -->
+     <div class="container--modal--doc" style="display: none;">
+            
+            <form action="" method="post" class="modal__content__doc">
+                <div id="closeModalDoc" class="modal__close">+</div>
+                <h2>Document toevoegen</h2>
+                    <label for="github">GitHub</label>
+                    <input class="form__input modal__task" type="text" placeholder="Link to GitHub" name="github" id="github">
+
+                    <label for="figma">Figma</label>
+                    <input class="form__input modal__task" type="text" placeholder="Link to Figma" name="figma" id="figma">
+
+                    <label for="trello">Trello</label>
+                    <input class="form__input modal__task" type="text" placeholder="Link to Trello" name="trello" id="trello">
+
+                    <label for="word">Word</label>
+                    <input class="form__input modal__task" type="text" placeholder="Link to Word" name="word" id="word">
+
+                <input class="btn" type="submit" value="Document toevoegen" name="addDocument">   
+            </form>
+       
+    </div>
+    <!--- end doc modal -->
     <div class="container--feed">
         <div class="sidebar__myprojects">
             <div class="active__projects">
@@ -116,7 +154,7 @@
                 </div>
             </div>
 
-            <div class="finished__projects">
+            <!-- <div class="finished__projects">
                 <h2>Voltooide projecten</h2>
                 <div class="project__card project__card__finished">
                     <div class="project__summary">
@@ -125,7 +163,7 @@
                             <h3>Naam VZW</h3>
                         </div>
 
-                        <p><span>Project:</span>  <?php echo $myprojects[0]["title"] ?></p>
+                        <p><span>Project:</span>  echo $myprojects[0]["title"] ?></p>
                         <img class="projects__img overlapping__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
                         <img class="projects__img overlapping__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
                         <img class="projects__img overlapping__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
@@ -135,6 +173,16 @@
                     <div class="project__info">
                         <a class="project__info__link" href="project.php">Meer info</a>
                         <img class="project__info__img" src="assets/img/arrow.png" alt="arrow">
+                    </div>
+                </div>
+            </div> -->
+            <div class="finished__projects__emptystate">
+                <h2>Voltooide projecten</h2>
+                <div class="project__card__emptystate project__card__finished">
+                    <div class="project__box__emptystate">
+                        <div class="project__box__emptystate">
+                            <h3>Je hebt nog geen voltooide projecten</h3>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -148,9 +196,39 @@
 
             <div class="external__documents">
                 <h2>Externe documenten</h2>
-                <div class="external__link">
-                    <img src="./assets/img/github.png" alt="">
-                </div>
+                    <div class="external__link__documents">
+                        <div id="addDocument" class="external__link">
+                            <p>+</p>
+                        </div>
+                        <?php if(!empty($github)): ?>
+                            <div class="external__link">
+                                <a href="<?php echo $github ?>" target="_blank">
+                                    <img src="assets/img/github.png" alt="github">
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                        <?php if(!empty($figma)): ?>
+                            <div class="external__link">
+                                <a href="<?php echo $figma ?>" target="_blank">
+                                    <img src="assets/img/figma.svg" alt="figma">
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                        <?php if(!empty($trello)): ?>
+                            <div class="external__link">
+                                <a href="<?php echo $trello ?>" target="_blank">
+                                    <img src="assets/img/trello.png" alt="trello">
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                        <?php if(!empty($word)): ?>
+                            <div class="external__link">
+                                <a href="<?php echo $word ?>" target="_blank">
+                                    <img src="assets/img/word.png" alt="word">
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                    </div>
             </div>
             <div class="tasks">
                 <div class="tasks__add">
@@ -189,6 +267,7 @@
     </div>
     <?php endif; ?>
 <script src="js/modal.js"></script>
+<script src="js/modal-document.js"></script>
 </body>
 
 </html>

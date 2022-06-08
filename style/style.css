@@ -877,14 +877,29 @@ p {
 }
 
 .external__link {
-    background-color: var(--gray);
+    width: 60px;
+    height: 60px;
+    background-color: var(--secondary);
     display: inline-block;
-    padding: 16px;
     border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 .external__link p {
     display: inline;
+    font-size: 18px;
+}
+.external__link a img {
+    width: 35px;
+    height: 35px;
+}
+
+.external__link__documents {
+    display: flex;
+    gap: 0.5em;
 }
 
 .tasks {
@@ -926,7 +941,7 @@ p {
     align-items: center;
 }
 
-.container--modal {
+.container--modal, .container--modal--doc {
     display: none;
     width: 100%;
     height: 120%;
@@ -938,7 +953,12 @@ p {
     align-items: center;
 }
 
-.modal__content {
+.container--modal--doc label {
+    margin-left: -260px;
+    padding-bottom: 0.5em;
+}
+
+.modal__content, .modal__content__doc {
     width: 400px;
     height: 280px;
     background-color: rgb(227, 227, 227);
@@ -948,6 +968,11 @@ p {
     align-items: center;
     justify-content: center;
     position: relative;
+}
+
+.modal__content__doc {
+    width: 400px;
+    height: 450px;
 }
 
 .modal__task {
