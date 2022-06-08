@@ -88,8 +88,8 @@
                 <form action="" method="post" class="modal__content">
                     <div id="closeModal" class="modal__close">+</div>
                     <h2>Taak toevoegen</h2>
-                    <input class="form__input modal__task" type="text" placeholder="Taak" name="task">
-                    <input class="btn" type="submit" value="Taak toevoegen" name="addTask">   
+                    <input class="form__input modal__task" id="task" type="text" placeholder="Taak" name="task">
+                    <input class="btn" id="btnSubmit" data-postid="<?php echo $myprojects[0]["id"] ?>" data-userid="<?php echo $_SESSION['id'] ?>" type="submit" value="Taak toevoegen" name="addTask">   
                 </form>
            
         </div>
@@ -268,6 +268,7 @@
     <?php endif; ?>
 <script src="js/modal-task.js"></script>
 <script src="js/modal-document.js"></script>
+<script src="js/task.js"></script>
 </body>
 
 </html>

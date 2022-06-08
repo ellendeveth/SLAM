@@ -66,6 +66,16 @@
             return $this;
         }
 
+        public function save()
+        {
+            $conn = Db::getInstance();
+            $statement = $conn->prepare("INSERT INTO tasks (task, post_id, user_id) VALUES (:task, :post_id, :user_id)");
+            $statement->bindValue(":task", $this->task);
+            $statement->bindValue(":post_id", $this->post_id);
+            $statement->bindValue(":user_id", $this->user_id);
+            return $statement->execute();
+        }
+
         public function addTask()
         {
             $conn = Db::getInstance();
