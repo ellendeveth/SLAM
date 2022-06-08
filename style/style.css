@@ -288,6 +288,24 @@ p {
     font-size: 14px;
 }
 
+.btn--outline {
+    background-color: transparent;
+    border: var(--accent) solid 0.1px;
+    width: 180px;
+    color: var(--offblack);
+    font-style: normal;
+}
+
+.btn--outline:hover {
+    background-color: var(--accent);
+    color: var(--offwhite);
+}
+
+.btn--end--project {
+    width:180px;
+    
+}
+
 /*
     forgot password
 */
@@ -949,7 +967,7 @@ p {
     align-items: center;
 }
 
-.container--modal, .container--modal--doc {
+.container--modal, .container--modal--doc, .container--modal--end {
     display: none;
     width: 100%;
     height: 120%;
@@ -966,7 +984,7 @@ p {
     padding-bottom: 0.5em;
 }
 
-.modal__content, .modal__content__doc {
+.modal__content, .modal__content__doc, .modal__content__end {
     width: 400px;
     height: 280px;
     background-color: rgb(227, 227, 227);
@@ -986,6 +1004,18 @@ p {
 .modal__task {
     width: 320px;
     margin-bottom: 1em;
+}
+
+.btns--modal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.modal__title {
+    text-align: center;
+    padding-bottom: 2em;
 }
 
 .modal__close {

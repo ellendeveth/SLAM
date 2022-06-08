@@ -37,6 +37,11 @@
         $doc->addDocument();
     }
    
+    if(!empty($_POST["endProject"])){
+        $project = new Project();
+        $project->setId($myprojects[0]["id"]);
+        $project->endProject();
+    }
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -139,8 +144,22 @@
        
     </div>
     <!--- end doc modal -->
+    <!-- add end project modal -->
+    <div class="container--modal--end" style="display: none;">
+        <form action="" method="post" class="modal__content__end">
+            <div id="closeModalEnd" class="modal__close">+</div>
+            <h2 class="modal__title">Ben je zeker dat je het project wil eindigen?</h2>
+            <div class="btns--modal">
+                <input class="btn btn--outline" type="text" value="Nee" id="refuse" >
+                <input class="btn btn--end--project" type="submit" value="Ja" name="endProject">   
+            </div>
+        </form>
+    </div>
+    <!--- end end project modal -->
+
     <div class="container--feed">
         <div class="sidebar__myprojects">
+            <?php if($myprojects[0]["active"] == 1): ?>
             <div class="active__projects">
                 <h2>Mijn projecten</h2>
                 <div class="project__card">
@@ -175,29 +194,44 @@
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="finished__projects">
+            <?php else: ?>
+                <div class="active__projects__emptystate">
+                <h2>Mijn projecten</h2>
+                <div class="project__card__emptystate">
+                    <div class="project__box__emptystate">
+                        <a href="index.php"><img class="emptystate__plus" src="assets/img/plus.png" alt="plus"></a>
+                        <h3>Zoek een Project</h3>
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>
+            
+            <?php if($myprojects[0]["active"] == 0): ?>
+            <div class="finished__projects">
                 <h2>Voltooide projecten</h2>
                 <div class="project__card project__card__finished">
                     <div class="project__summary">
                         <div class="project__box__profile">
                             <img class="projects__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
-                            <h3>Naam VZW</h3>
+                            <h3><?php echo $organisation['name'] ?></h3>
                         </div>
 
-                        <p><span>Project:</span>  echo $myprojects[0]["title"] ?></p>
-                        <img class="projects__img overlapping__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
-                        <img class="projects__img overlapping__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
-                        <img class="projects__img overlapping__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
-                        <img class="projects__img overlapping__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
-                    </div>
-
-                    <div class="project__info">
-                        <a class="project__info__link" href="project.php">Meer info</a>
-                        <img class="project__info__img" src="assets/img/arrow.png" alt="arrow">
+                        <p><span>Project: </span><?php  echo $myprojects[0]["title"] ?></p>
+                        <ul class="projects__list">
+                            <?php foreach ($members as $member): ?>
+                            <li>
+                                <?php if (empty($member['profile_pic'])): ?>
+                                    <img class="projects__img overlapping__img" src="profile_pictures/profile-pic.png" alt="profile-pic">
+                                <?php else: ?>
+                                    <img class="projects__img overlapping__img" src="profile_pictures/<?php echo $member['profile_pic'] ?>" alt="profile-pic">
+                                <?php endif; ?>
+                            </li>
+                            <?php endforeach; ?>
+                        </ul>
                     </div>
                 </div>
-            </div> -->
+            </div> 
+            <?php else: ?>
             <div class="finished__projects__emptystate">
                 <h2>Voltooide projecten</h2>
                 <div class="project__card__emptystate project__card__finished">
@@ -208,9 +242,11 @@
                     </div>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
 
         <div class="project__details">
+            <?php if($myprojects[0]["active"] == 1): ?>
             <div class="project__explanation">
                 <h1 class="header-one"> <?php echo $myprojects[0]["title"] ?></h1>
                 <p> <?php echo $myprojects[0]["description"] ?></p>
@@ -285,15 +321,22 @@
                     <?php endif; ?>
                 </div>
             </div>
-            <?php if (!$isStudent): ?>
-                <input type="submit" value="Eindig project" class="btn btn--end">
+                <?php if (!$isStudent): ?>
+                    <input type="submit" value="Eindig project" class="btn btn--end" id="endProject">
+                <?php endif; ?>
+            <?php else: ?>
+                <div class="project__emptystate">
+                    <img class="emptystate__doc" src="assets/img/empty-state.png" alt="empty state">
+                    <h2 class="emptystate__title">Je zit momenteel niet in actief een project</h2>
+                    <p class="emptystate__text">Vind een geschikt project en meld je zo snel mogelijk aan!</p>
+                </div> 
             <?php endif; ?>
-
         </div>
     </div>
     <?php endif; ?>
 <script src="js/modal-task.js"></script>
 <script src="js/modal-document.js"></script>
+<script src="js/modal-end.js"></script>
 <script src="js/task.js"></script>
 </body>
 

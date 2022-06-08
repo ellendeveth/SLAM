@@ -181,4 +181,11 @@
             $statement->bindValue(':id', $id);
             return $statement->execute();
         }
+
+        public function endProject(){
+            $conn = Db::getInstance();
+            $statement = $conn->prepare('UPDATE posts SET active = 0 WHERE id = :id');
+            $statement->bindValue(':id', $this->id);
+            return $statement->execute();
+        }
     }
